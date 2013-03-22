@@ -19,9 +19,9 @@ public class ExpenseRegisterController {
     }
 
     public void registerExpense(String what, Date date, BigDecimal amount) {
-        Expense expense = new Expense( what, date, amount);
+      //  Expense expense = new Expense( what, date, amount);
         ExpenseRepository repo = new ExpenseRepository();
-        repo.save(expense);
+       // repo.save(expense);
     }
     
 }
