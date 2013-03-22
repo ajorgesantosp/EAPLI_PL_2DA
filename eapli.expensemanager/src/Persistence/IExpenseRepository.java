@@ -9,7 +9,6 @@ import java.util.List;
  *
  * @author losa
  */
-public interface IExpenseRepository {
-    void save(Expense exp);
-  //  List<Expense> getAllExpenses();        
+public interface IExpenseRepository extends Iterable<Expense>{
+    void save(Expense exp);       
 }
