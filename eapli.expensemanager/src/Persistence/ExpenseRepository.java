@@ -22,6 +22,7 @@ public class ExpenseRepository implements IExpenseRepository {
     public ExpenseRepository() {
     }
 
+    @Override
     public void save(Expense exp) {
         if (exp == null) {
             throw new IllegalArgumentException();
