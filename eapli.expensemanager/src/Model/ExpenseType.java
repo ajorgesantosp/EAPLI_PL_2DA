@@ -1,19 +1,35 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package Model;
 
+/**
+ *
+ * @author 1110119/1110285 (artur-kk / kameluh)
+ */
 public class ExpenseType {
-    private String mDescription;
-    private int mID;
+    private String expType;
 
-    public ExpenseType(String description, int id) {
-        this.mDescription = description;
-        this.mID = id;
+    public ExpenseType(String expType) {
+        this.expType=expType;
+    }
+    
+    public ExpenseType(ExpenseType eT){
+        this.expType=eT.getExpType();
     }
 
-    public String getDescription() {
-        return mDescription;
+    /**
+     * @return the expType
+     */
+    public String getExpType() {
+        return expType;
     }
 
-    public int getId() {
-        return mID;
+    /**
+     * @param expType the expType to set
+     */
+    public void setExpType(String expType) {
+        this.expType = expType;
     }
 }
