@@ -17,7 +17,7 @@ import java.util.Date;
  */
 class ExpenseRegisterUI extends BaseUI {
     @Override
-    public void mainLoop() {
+    public void doShow() {
         System.out.println("* * *  REGISTER AN EXPENSE  * * *\n");
         String description = Console.readLine("Description:");
         Date date = Console.readDate("When:");

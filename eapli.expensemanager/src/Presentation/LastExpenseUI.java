@@ -9,7 +9,7 @@ import Model.Expense;
  */
 public class LastExpenseUI extends BaseUI {
     @Override
-    public void mainLoop() {
+    public void doShow() {
         Expense exp = new LastExpenseController().getLastExpense();
         System.out.println("Last expense:\n");
         System.out.println("Description: " + exp.getDescription() + "\n");

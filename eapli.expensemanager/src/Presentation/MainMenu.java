@@ -27,7 +27,7 @@ public class MainMenu {
             int option = Console.readInteger("Please choose a option");
 
             if(option == 0) System.out.println("bye bye ...");
-            else if(option >= 1 && option <= options.length) options[option - 1].mainLoop();
+            else if(option >= 1 && option <= options.length) options[option - 1].doShow();
         } while (true);
     }
 }
