@@ -28,7 +28,7 @@ public class MonthExpenditureController {
         expenses=repo.getExpenses();
         CalendarDate expDate;
         for(Expense e:expenses){
-            expDate = e.getDate();
+            expDate = e.getCalendarDate();
             if(expDate.getYear()==current_year && expDate.getMonth()==current_month){
                 monthExp.add(e);
             }
