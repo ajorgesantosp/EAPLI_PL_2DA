@@ -13,7 +13,7 @@ public class ShowExpendituresController {
     public ShowExpendituresController() {
     }
 
-    public Iterator<Expense> iterateExpenditures() {
+    public Iterable<Expense> iterateExpenditures() {
         return new ExpenseRepository();
     }    
 }
