@@ -6,6 +6,7 @@ package Presentation;
 
 import Controllers.WeekExpenditureController;
 import Model.Expense;
+import java.math.BigDecimal;
 
 /**
  *
@@ -13,14 +14,19 @@ import Model.Expense;
  */
 public class WeekExpenditureUI {
     
+    WeekExpenditureController wec = new WeekExpenditureController();
+    
     public WeekExpenditureUI(){
         
     }
     
     public void interfaceUI(){
-        WeekExpenditureController wec = new WeekExpenditureController();
         for(Expense e : wec.getCurrentWeekExpenses()){
             System.out.println(e);
         }
+    }
+    
+    public BigDecimal showBalance(){
+        return wec.getAmountWeekExpenses(wec.getCurrentWeekExpenses());
     }
 }
