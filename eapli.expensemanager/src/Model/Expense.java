@@ -7,6 +7,7 @@ package Model;
 import eapli.util.DateTime;
 import java.math.BigDecimal;
 import java.util.Date;
+import sun.util.calendar.CalendarDate;
 
 
 /**
@@ -50,6 +51,14 @@ public class Expense {
     public Date getDate() {
         return date;
     }  
+    
+    public CalendarDate getCalendarDate(){
+        CalendarDate data=null;
+        data.setDayOfMonth(getDate().getDay());
+        data.setMonth(getDate().getMonth());
+        data.setYear(getDate().getYear());
+        return data;
+    }
 
     public String getDescription() {
         return description;
