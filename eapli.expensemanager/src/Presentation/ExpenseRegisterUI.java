@@ -5,6 +5,7 @@
 package Presentation;
 
 import Controllers.ExpenseRegisterController;
+import Model.ExpenseType;
 
 import eapli.util.Console;
 import java.math.BigDecimal;
@@ -15,17 +16,31 @@ import java.util.Date;
  * @author Paulo Gandra Sousa
  */
 class ExpenseRegisterUI {
-    public void mainLoop() {
+    public void doShow() {
         System.out.println("* * *  REGISTER AN EXPENSE  * * *\n");
-        
-        String what = Console.readLine("Description:");
+        String description = Console.readLine("Description:");
         Date date = Console.readDate("When:");
         double value = Console.readDouble("Amount:");
         BigDecimal amount = new BigDecimal(value);
         
-        ExpenseRegisterController controller = new ExpenseRegisterController();
-        controller.registerExpense(what, date, amount);
+        ExpenseRegisterController controller = new ExpenseRegisterController();        
+        //TODO - mostrar a lista dos tipos de despesas
         
-        System.out.println("expense recorded.");
+        //escreve a lista
+        String type = Console.readLine("Type:");
+        
+        try {
+            int type_pos = Integer.parseInt(type);
+                        
+            //TODO - obter o objecto X da lista
+            ExpenseType expenseType = controller.getObjectType(type_pos);
+
+            controller.registerExpense(description, date, amount, expenseType);
+            System.out.println("expense recorded.");            
+        }
+        catch (Exception e)
+        {
+            System.out.println("expense couldnt be created");
+        }        
     }
 }
