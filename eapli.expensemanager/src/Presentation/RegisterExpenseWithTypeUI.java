@@ -15,6 +15,7 @@ import java.util.Date;
  */
 public class RegisterExpenseWithTypeUI {
     public void doShow() {
+        System.out.println("TESTE");
         System.out.println("* * *  REGISTER AN EXPENSE WITH TYPE  * * *\n");
         String description = Console.readLine("Description:");
         Date date = Console.readDate("When:");
