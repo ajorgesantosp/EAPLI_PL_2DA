@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package Presentation;
 
 import eapli.bootstrap.ExpenseBootstrapper;
@@ -15,33 +11,23 @@ public class MainMenu {
 
     public void mainLoop() {
         new ExpenseBootstrapper();
+        
+        // adicionar aqui instâncias de classes com extends BaseUI para aparecem no menu
+        BaseUI options[] = new BaseUI[]{ new ExpenseRegisterUI(), new LastExpenseUI() };
+        
         do {
             System.out.println("===================");
             System.out.println("  EXPENSE MANAGER  ");
             System.out.println("===================\n");
 
-            System.out.println("1. Register an expense");
-            System.out.println("2. Last expense");
-            System.out.println("0. Exit\n\n");
+            for(int i = 0; i < options.length; i++)
+                System.out.format("%2d. %s\n", i+1, options[i].getActionName());
+            System.out.println("0. Exit\n");
 
             int option = Console.readInteger("Please choose a option");
 
-            switch (option) {
-                case 0:
-                    System.out.println("bye bye ...");
-                    return;
-                case 1: {
-                    ExpenseRegisterUI ui = new ExpenseRegisterUI();
-                    ui.mainLoop();
-                    break;
-                }
-                case 2: {
-                    LastExpenseUI ui = new LastExpenseUI();
-                    ui.showLastExpense();
-                    break;
-                }
-
-            }
+            if(option == 0) System.out.println("bye bye ...");
+            else if(option >= 1 && option <= options.length) options[option - 1].doShow();
         } while (true);
     }
 }

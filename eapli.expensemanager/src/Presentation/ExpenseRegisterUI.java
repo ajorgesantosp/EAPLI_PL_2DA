@@ -15,7 +15,8 @@ import java.util.Date;
  *
  * @author Paulo Gandra Sousa
  */
-class ExpenseRegisterUI {
+class ExpenseRegisterUI extends BaseUI {
+    @Override
     public void doShow() {
         System.out.println("* * *  REGISTER AN EXPENSE  * * *\n");
         String description = Console.readLine("Description:");
@@ -43,6 +44,11 @@ class ExpenseRegisterUI {
         catch (Exception e)
         {
             System.out.println("expense couldnt be created");
-        }        
+        }
+    }
+
+    @Override
+    public String getActionName() {
+        return "Register an expense";
     }
 }
