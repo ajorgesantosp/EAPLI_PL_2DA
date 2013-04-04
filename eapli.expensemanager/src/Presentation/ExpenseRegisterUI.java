@@ -29,6 +29,8 @@ class ExpenseRegisterUI {
         //escreve a lista
         String type = Console.readLine("Type:");
         
+        //TODO - Tipos de pagamento
+        
         try {
             int type_pos = Integer.parseInt(type);
                         

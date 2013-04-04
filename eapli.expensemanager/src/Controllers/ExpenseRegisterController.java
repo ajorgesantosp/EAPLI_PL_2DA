@@ -40,4 +40,6 @@ public class ExpenseRegisterController {
         return expenseType;
     }
     
+    //TODO - obter a lista de tipos de pagamento
+    
 }
