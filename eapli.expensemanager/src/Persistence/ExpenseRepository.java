@@ -43,6 +43,10 @@ public class ExpenseRepository implements IExpenseRepository {
         }
         return null;
     }
+    
+    public ArrayList<Expense> getExpenses(){
+        return (ArrayList)listExpense;
+    }
 
     @Override
     public Iterator<Expense> iterator() {
