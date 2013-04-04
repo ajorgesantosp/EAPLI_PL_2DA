@@ -7,6 +7,7 @@ package Controllers;
 import Model.Expense;
 import Persistence.ExpenseRepository;
 import eapli.util.DateTime;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Calendar;
 import sun.util.calendar.CalendarDate;
@@ -40,5 +41,13 @@ public class WeekExpenditureController {
             }
         }
         return weekExp;
+    }
+    
+    public BigDecimal getAmountWeekExpenses(ArrayList<Expense> weekExp){
+        BigDecimal total=null;
+        for(Expense e:weekExp){
+            total=total.add(e.getAmount());
+        }
+        return total;
     }
 }
