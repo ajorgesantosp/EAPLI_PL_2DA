@@ -34,8 +34,9 @@ public class MonthExpenditureController {
             }
         }
         return monthExp;
+            System.out.println("test");
     }   
-   //System.out.println("test");
+   
 }
     
     
