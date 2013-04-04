@@ -10,6 +10,7 @@ import eapli.util.DateTime;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import sun.util.calendar.CalendarDate;
 
 /**
@@ -35,7 +36,7 @@ public class WeekExpenditureController {
         expenses=repo.getExpenses();
         CalendarDate expDate;
         for(Expense e:expenses){
-            expDate = e.getDate();
+            expDate = e.getCalendarDate();
             if(expDate.getYear()==current_year && expDate.getMonth()==current_month && expDate.getDayOfMonth()>=first.DAY_OF_MONTH && expDate.getDayOfMonth()<=last.DAY_OF_MONTH){
                 weekExp.add(e);
             }
