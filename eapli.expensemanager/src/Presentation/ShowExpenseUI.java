@@ -13,8 +13,8 @@ import Model.Expense;
 class ShowExpenseUI {
 	public static void show(Expense e) {
 		System.out.printf("Description: %s%s\nDate: %s\nAmount: %.2f€\n",
-				e.getDescription(), e.getType() == null ? "" : "\nType: "
-						+ e.getType().getDescription(), e.getDate(),
+				e.getDescription(), e.getExpenseType() == null ? "" : "\nType: "
+						+ e.getExpenseType().getDescription(), e.getDate(),
 				e.getAmount());
 	}
 }
