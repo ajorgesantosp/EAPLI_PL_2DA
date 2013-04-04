@@ -1,28 +1,19 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package Model;
 
-/**
- *
- * @author Rita
- */
 public class ExpenseType {
-
-    private String mTypeName;
+    private String mDescription;
     private int mID;
 
-    public ExpenseType(String name, int id) {
-        this.mTypeName = name;
+    public ExpenseType(String description, int id) {
+        this.mDescription = description;
         this.mID = id;
     }
 
-    public String getmTypeName() {
-        return mTypeName;
+    public String getDescription() {
+        return mDescription;
     }
 
-    public int getmID() {
+    public int getId() {
         return mID;
     }
 }
