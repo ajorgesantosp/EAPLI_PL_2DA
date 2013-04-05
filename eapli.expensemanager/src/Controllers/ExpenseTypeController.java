@@ -7,6 +7,7 @@ package Controllers;
 import Model.ExpenseType;
 
 import Persistence.*;
+import eapli.util.Console;
 import java.util.List;
 /**
  *
@@ -16,11 +17,17 @@ public class ExpenseTypeController {
 
     public ExpenseTypeController() {
     }
+    
+     public void registerExpenseType() {
+        System.out.println("* * *  REGISTER AN EXPENSE TYPE  * * *\n");
 
-    public void registerExpenseType(String type) {
+        String type = Console.readLine("Expense type name:");
+
         ExpenseType expenseType = new ExpenseType (type);
         ExpenseTypeRepository repo = new ExpenseTypeRepository();
         repo.save(expenseType);
+
+        System.out.println("Expense type saved successfully!");
     }
     
     public List<ExpenseType> getAllExpTypes(){
