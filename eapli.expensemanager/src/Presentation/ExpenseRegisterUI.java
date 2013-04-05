@@ -9,6 +9,7 @@ import Model.ExpenseType;
 
 import eapli.util.Console;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -19,25 +20,28 @@ class ExpenseRegisterUI extends BaseUI {
     @Override
     public void doShow() {
         System.out.println("* * *  REGISTER AN EXPENSE  * * *\n");
-        String description = Console.readLine("Description:");
-        Date date = Console.readDate("When:");
-        double value = Console.readDouble("Amount:");
+        String description = Console.readLine("Description: ");
+        Date date = Console.readDate("When: ");
+        double value = Console.readDouble("Amount: ");
         BigDecimal amount = new BigDecimal(value);
         
-        ExpenseRegisterController controller = new ExpenseRegisterController();        
+        System.out.println("List of Types:");
+        ExpenseRegisterController controller = new ExpenseRegisterController();
+        ArrayList<ExpenseType> listTypes = controller.getListType();
+        
+        int sizeOfListTypes = listTypes.size();
+        for (int i = 0 ; i < sizeOfListTypes ; i++)
+        {
+            System.out.println("Pos: " + i);
+            System.out.println(listTypes.get(i));
+        }
+        
         //TODO - mostrar a lista dos tipos de despesas
         
-        //escreve a lista
-        String type = Console.readLine("Type:");
-        
-        //TODO - Tipos de pagamento
-        
         try {
-            int type_pos = Integer.parseInt(type);
-                        
-            //TODO - obter o objecto X da lista
-            ExpenseType expenseType = controller.getObjectType(type_pos);
-
+            int posType = Console.readInteger("Select the position of the type: ");
+            ExpenseType expenseType = controller.getObjectType(posType);
+            
             controller.registerExpense(description, date, amount, expenseType);
             System.out.println("expense recorded.");            
         }
