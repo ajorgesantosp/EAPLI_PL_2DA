@@ -10,6 +10,8 @@ import Model.ExpenseType;
 import java.math.BigDecimal;
 import java.util.Date;
 import Persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 /**
  *
  * @author Paulo Gandra Sousa
@@ -25,18 +27,18 @@ public class ExpenseRegisterController {
         repo.save(expense);
     }
     
-    public String getListType()
+    public ArrayList<ExpenseType> getListType()
     {
-        ExpenseRepository repo = new ExpenseRepository();
-        String listType = repo.getListType();
-        return listType;
+        ExpenseTypeRepository repo = new ExpenseTypeRepository();
+        List<ExpenseType> listType;
+        listType = repo.getListOfTypes();        
+        return (ArrayList)listType;
     }
     
     public ExpenseType getObjectType(int pos_type)
     {
-        //TODO - mudar para EXPENSE TYPE
-        ExpenseRepository repo = new ExpenseRepository();
-        ExpenseType expenseType = repo.getObjectExpenseType(pos_type);
+        ExpenseTypeRepository repo = new ExpenseTypeRepository();
+        ExpenseType expenseType = repo.getExpType(pos_type);
         return expenseType;
     }
     
