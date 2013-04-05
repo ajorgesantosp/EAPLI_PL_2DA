@@ -15,20 +15,9 @@ import java.util.Date;
  *
  * @author 1110119/1110285 (artur-kk / kameluh)
  */
-class ExpenseTypeUI {
+class ExpenseTypeUI extends BaseUI {
 
-    private void registerExpenseType() {
-        System.out.println("* * *  REGISTER AN EXPENSE TYPE  * * *\n");
-
-        String what = Console.readLine("Expense type name:");
-
-        ExpenseTypeController controller = new ExpenseTypeController();
-        controller.registerExpenseType(what);
-
-        System.out.println("Expense type saved successfully!");
-    }
-    
-    private void imprimeMenu(){
+    private void imprimeMenu() {
         System.out.println("========================");
         System.out.println("  EXPENSE TYPE MANAGER  ");
         System.out.println("========================\n");
@@ -38,8 +27,10 @@ class ExpenseTypeUI {
         System.out.println("0. Exit\n\n");
     }
 
-    public void mainLoop() {
+    @Override
+    public void doShow() {
         int option;
+        ExpenseTypeController controllerExpT = new ExpenseTypeController();
         do {
             imprimeMenu();
             option = Console.readInteger("Please choose a option");
@@ -48,10 +39,10 @@ class ExpenseTypeUI {
                     System.out.println("bye bye ...");
                     return;
                 case 1:
-                    registerExpenseType();
+                    controllerExpT.registerExpenseType();
                     break;
                 case 2:
-                    ExpenseTypeController controllerExpT = new ExpenseTypeController();
+
                     System.out.println();
                     for (ExpenseType expT : controllerExpT.getAllExpTypes()) {
                         System.out.println(expT.getExpType());
@@ -61,5 +52,10 @@ class ExpenseTypeUI {
                     break;
             }
         } while (option != 0);
+    }
+
+    @Override
+    public String getActionName() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
