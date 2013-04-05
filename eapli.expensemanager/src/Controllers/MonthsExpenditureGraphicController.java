@@ -76,6 +76,7 @@ public class MonthsExpenditureGraphicController {
             }
             graphic.add(e);
         }
+        graphic.add("* = " + max.divide(new BigDecimal(40)));
         return graphic;
     }
 }
