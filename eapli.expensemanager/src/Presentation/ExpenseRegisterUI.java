@@ -19,11 +19,11 @@ import java.util.Date;
 class ExpenseRegisterUI extends BaseUI {
     @Override
     public void doShow() {
-        System.out.println("* * *  REGISTER AN EXPENSE  * * *\n");
-        String description = Console.readLine("Description: ");
-        
         try
         {
+            System.out.println("* * *  REGISTER AN EXPENSE  * * *\n");
+            String description = Console.readLine("Description: ");
+        
             Date date = Console.readDate("When: ");
             double value = Console.readDouble("Amount: ");
             BigDecimal amount = new BigDecimal(value);
