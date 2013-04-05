@@ -1,7 +1,7 @@
 package Model;
 
 /**
- * This class represents a cash payment mean.
+ * This class represents cash.
  *
  * @author gilfmc & RitaNogueira
  */
