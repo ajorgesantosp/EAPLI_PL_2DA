@@ -27,13 +27,13 @@ class ExpenseRegisterUI extends BaseUI {
         
         System.out.println("List of Types:");
         ExpenseRegisterController controller = new ExpenseRegisterController();
-        ArrayList<ExpenseType> listTypes = controller.getListType();
+        ArrayList<ExpenseType> listType = controller.getListType();
         
-        int sizeOfListTypes = listTypes.size();
-        for (int i = 0 ; i < sizeOfListTypes ; i++)
+        int sizeOfListType = listType.size();
+        for (int i = 0 ; i < sizeOfListType ; i++)
         {
             System.out.println("Pos: " + i);
-            System.out.println(listTypes.get(i));
+            System.out.println(listType.get(i));
         }
         
         //TODO - mostrar a lista dos tipos de despesas
