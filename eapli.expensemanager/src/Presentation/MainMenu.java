@@ -13,7 +13,7 @@ public class MainMenu {
         new ExpenseBootstrapper();
         
         // adicionar aqui instâncias de classes com extends BaseUI para aparecem no menu
-        BaseUI options[] = new BaseUI[]{ new ExpenseRegisterUI(), new LastExpenseUI() };
+        BaseUI options[] = new BaseUI[]{ new ExpenseRegisterUI(), new LastExpenseUI(), new WeekExpenditureUI() };
         
         do {
             System.out.println("===================");
