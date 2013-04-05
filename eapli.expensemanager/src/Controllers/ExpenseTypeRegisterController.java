@@ -5,7 +5,7 @@
 package Controllers;
 
 import Model.ExpenseType;
-import Persistence.TypeRepository;
+import Persistence.ExpenseTypeRepository;
 
 /**
  *
@@ -17,7 +17,7 @@ public class ExpenseTypeRegisterController {
 
     public void registerType(String name, int id) {
         ExpenseType expense = new ExpenseType(name, id);
-        TypeRepository repo = new TypeRepository();
+        ExpenseTypeRepository repo = new ExpenseTypeRepository();
         repo.save(expense);
     }
 }
