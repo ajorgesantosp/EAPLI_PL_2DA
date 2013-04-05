@@ -30,5 +30,7 @@ public class ExpenseTypeRepository{
         return listExpenseType;
     }
     
-    
+    public ExpenseType getExpType(int pos){
+       return listExpenseType.get(pos);
+    }
 }

@@ -27,7 +27,4 @@ public class ExpenseTypeController {
         ExpenseTypeRepository repo = new ExpenseTypeRepository();
         return repo.getListOfTypes();
     }
-    
-    
-    
 }

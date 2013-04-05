@@ -12,7 +12,7 @@ import java.math.BigDecimal;
  *
  * @author i110687
  */
-public class WeekExpenditureUI {
+public class WeekExpenditureUI extends BaseUI {
     
     WeekExpenditureController wec = new WeekExpenditureController();
     
@@ -20,13 +20,20 @@ public class WeekExpenditureUI {
         
     }
     
+    @Deprecated
     public void interfaceUI(){
         for(Expense e : wec.getCurrentWeekExpenses()){
             System.out.println(e);
         }
     }
-    
-    public BigDecimal showBalance(){
-        return wec.getAmountWeekExpenses(wec.getCurrentWeekExpenses());
+
+    @Override
+    public void doShow() {
+        System.out.print("Week balance: " + wec.getAmountWeekExpenses(wec.getCurrentWeekExpenses()));
+    }
+
+    @Override
+    public String getActionName() {
+        return "Show Week Expenditure";
     }
 }
