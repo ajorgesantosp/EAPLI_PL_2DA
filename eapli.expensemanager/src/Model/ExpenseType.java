@@ -1,35 +1,60 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package Model;
 
 /**
+ * This class represents an expense type. Expense class depends on ExpenseType
  *
- * @author 1110119/1110285 (artur-kk / kameluh)
+ * @author 1110119/1110285 (artur-kk / kameluh) + gilfmc & RitaNogueira
+ * revisions
  */
 public class ExpenseType {
-    private String expType;
 
-    public ExpenseType(String expType) {
-        this.expType=expType;
+    private String description;
+
+    public ExpenseType(String description) {
+        this.description = description;
     }
-    
-    public ExpenseType(ExpenseType eT){
-        this.expType=eT.getExpType();
+
+    public ExpenseType(ExpenseType eT) {
+        this.description = eT.description;
     }
 
     /**
-     * @return the expType
+     * Gets the description of this ExpenseType
+     *
+     * @return the description
      */
+    public String getDescription() {
+        return description;
+    }
+
+    /**
+     * Sets the description of this ExpenseType
+     *
+     * @param description the new description
+     */
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    /**
+     * Gets the description of this ExpenseType
+     *
+     * @return the description
+     * @deprecated change to getDescription()
+     */
+    @Deprecated
     public String getExpType() {
-        return expType;
+        return getDescription();
     }
 
     /**
-     * @param expType the expType to set
+     * Sets the description of this ExpenseType
+     *
+     * @param description the new description
+     * @deprecated change to setDescription(string)
      */
+    @Deprecated
     public void setExpType(String expType) {
-        this.expType = expType;
+        setDescription(expType);
     }
 }
