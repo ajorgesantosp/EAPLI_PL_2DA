@@ -1,35 +1,40 @@
 package Model;
 
 /**
- * Represents a way of payment.This class is important in 
- * @author i110156
+ * Represents a payment mean. Expense depends on a PaymentMean child class
+ *
+ * @author i110156 + gilfmc & RitaNogueira
  */
-public class PaymentMean {
-   
-    private String description;
-    
-    public PaymentMean(String description){
-        
-        this.description=description;
-    }
-    
-    
-    public String toString(){
-        
-        return getDescription();
-    }
+public abstract class PaymentMean {
+   private PaymentType type;
+   private String description;
 
-    /**
-     * @return the description
-     */
-    public String getDescription() {
-        return description;
-    }
+   public PaymentMean(PaymentType type, String description) {
+      this.type = type;
+      setDescription(description);
+   }
 
-    /**
-     * @param description the description
-     */
-    public void setDescription(String description) {
-        this.description = description;
-    }
+   public String toString() {
+      return getDescription();
+   }
+
+   /**
+    * Gets the description of this PaymentMean
+    *
+    * @return the description
+    */
+   public String getDescription() {
+      return description;
+   }
+
+   /**
+    * Sets the description of this PaymentMean
+    *
+    * @param description the new description
+    */
+   public void setDescription(String description) {
+      if (description == null)
+         throw new IllegalArgumentException();
+      this.description = description;
+   }
 }
