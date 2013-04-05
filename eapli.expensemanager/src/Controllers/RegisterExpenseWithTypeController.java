@@ -5,9 +5,12 @@
 package Controllers;
 
 import Model.Expense;
+import Model.ExpenseType;
 import Persistence.ExpenseRepository;
+import Persistence.ExpenseTypeRepository;
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 
 /**
  *
@@ -18,15 +21,15 @@ public class RegisterExpenseWithTypeController {
     }
 
     public void registerExpense(String what, Date date, BigDecimal amount, ExpenseType type_pos) {
-        Expense expense = new Expense(what, date, amount, ExpenseType);
+        Expense expense = new Expense(what, date, amount, type_pos);
         ExpenseRepository repo = new ExpenseRepository();
         repo.save(expense);
     }
     
-    public String getListType()
+    public List<ExpenseType> getListType()
     {
         ExpenseTypeRepository repo = new ExpenseTypeRepository();
-        String listType = repo.getListType();
+        List<ExpenseType> listType = repo.getListOfTypes();
         return listType;
     }
     

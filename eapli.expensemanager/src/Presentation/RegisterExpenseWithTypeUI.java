@@ -5,6 +5,7 @@
 package Presentation;
 
 import Controllers.RegisterExpenseWithTypeController;
+import Model.ExpenseType;
 import eapli.util.Console;
 import java.math.BigDecimal;
 import java.util.Date;
