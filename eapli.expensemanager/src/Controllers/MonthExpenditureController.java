@@ -35,7 +35,14 @@ public class MonthExpenditureController {
         }
         return monthExp;
             
-    }   
+    }  
+     public BigDecimal getAmountMonthExpenses(ArrayList<Expense> monthExp){
+        BigDecimal total=null;
+        for(Expense e:monthExp){
+            total=total.add(e.getAmount());
+        }
+        return total;
+    }
    
 }
     
