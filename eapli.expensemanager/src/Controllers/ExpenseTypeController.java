@@ -28,6 +28,7 @@ public class ExpenseTypeController {
         return repo.getListOfTypes();
     }
     
-    
-    
+    public ExpenseType getExpType(int pos){
+       return getAllExpTypes().get(pos);
+    }
 }
