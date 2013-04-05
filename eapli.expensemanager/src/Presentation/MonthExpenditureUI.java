@@ -6,7 +6,7 @@ import Model.Expense;
 import java.math.BigDecimal;
 
 
-public class MonthExpenditureUI {
+public class MonthExpenditureUI  extends BaseUI{
    /*public void interfaceUI(){
         MonthExpenditureController mecontroller = new MonthExpenditureController();
         for(Expense e : mecontroller.getCurrentMonthExpenses()){
@@ -20,17 +20,24 @@ public class MonthExpenditureUI {
     }
     
     public void interfaceUI(){
-        for(Expense e : mec.getCurrentMonthExpenses()){
+        for(Expense e : mec.getMonthExpenses()){
             System.out.println(e);
         }
     }
     
     public BigDecimal showBalance(){
-        return mec.getAmountMonthExpenses(mec.getCurrentMonthExpenses());
+        return mec.getAmountMonthExpenses(mec.getMonthExpenses());
     }
     
-    public void showStuff ()  {
-        System.out.println("Month balance:" + showBalance());
+    
+
+    @Override
+    public void doShow() {
+         System.out.println("Month balance:" + showBalance()); }
+
+    @Override
+    public String getActionName() {
+    return "Show Month Expenditure";    
     }
 }
     
