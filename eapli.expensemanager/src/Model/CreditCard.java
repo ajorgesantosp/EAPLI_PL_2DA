@@ -6,7 +6,7 @@ package Model;
  * @author gilfmc & RitaNogueira
  */
 public class CreditCard extends Card {
-   public CreditCard(PaymentType type, String description, int number) {
+   public CreditCard(String description, int number) {
       super(PaymentType.CreditCard, description, number);
    }
 }
