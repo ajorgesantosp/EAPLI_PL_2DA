@@ -28,9 +28,10 @@ public class MonthsExpenditureGraphicController {
      */
     
     public ArrayList<String> createGraphic(int month, int year) {
+        MonthExpenditureController mec = new MonthExpenditureController();
         ArrayList<String> graphic = new ArrayList<String>();
         ArrayList<ExpenseType> expensetypes = (ArrayList<ExpenseType>) repo.getListOfTypes();
-        ArrayList<Expense> expenses = getAnyMonthExpenses(month,year);
+        ArrayList<Expense> expenses = mec.getAnyMonthExpenses(month,year);
         ArrayList<BigDecimal> totals = new ArrayList<BigDecimal>();
         BigDecimal total;
         for(ExpenseType typeexp : expensetypes) {
