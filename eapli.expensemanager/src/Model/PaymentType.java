@@ -1,17 +1,10 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package Model;
 
 /**
- *
- * @author Joao
+ * Tbis enum contains the avilable payment means. This class is used by PaymentMean
+ * @author gilfmc & RitaNogueira
  */
-public class PaymentType {
-    private String type;
-    
-    public PaymentType(String type){
-        this.type = type;
-    }
+public enum PaymentType {
+
+   Cash, Check, CreditCard, DebitCard
 }
