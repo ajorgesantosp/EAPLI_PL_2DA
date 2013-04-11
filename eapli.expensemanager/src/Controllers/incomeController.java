@@ -12,7 +12,8 @@ import java.math.BigDecimal;
 
 /**
  *
- * @author Antonio
+ * @author antoniopedro
+ * @author joasdavid
  */
 public class incomeController {
     public void registIncome(double amount,String date,String desc, IncomeType type){
