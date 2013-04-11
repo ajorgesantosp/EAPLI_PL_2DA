@@ -23,6 +23,8 @@ public abstract class BaseUI {
     /**
      * Mostrar ...
      */
-    public abstract void showBalance();
+    public void showBalance(){
+        
+    }
 }
 
