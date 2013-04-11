@@ -21,13 +21,13 @@ public class ExpenseTypeController {
      public void registerExpenseType() {
         System.out.println("* * *  REGISTER AN EXPENSE TYPE  * * *\n");
 
-        String type = Console.readLine("Expense type name:");
+        String description = Console.readLine("Expense type description:");
 
-        ExpenseType expenseType = new ExpenseType (type);
+        ExpenseType expenseType = new ExpenseType (description);
         ExpenseTypeRepository repo = new ExpenseTypeRepository();
         repo.save(expenseType);
 
-        System.out.println("Expense type saved successfully!");
+        System.out.println("Expense type saved successfully!"+expenseType.toString());
     }
     
     public List<ExpenseType> getAllExpTypes(){
