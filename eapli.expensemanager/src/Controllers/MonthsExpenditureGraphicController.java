@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author FILIPE
+ * @author noobshark & PIPOKID
  */
 public class MonthsExpenditureGraphicController {
     /*
