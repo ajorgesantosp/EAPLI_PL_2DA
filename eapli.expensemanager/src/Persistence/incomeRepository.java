@@ -10,7 +10,8 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Antonio
+ * @author antoniopedro
+ * @author joasdavid
  */
 public class incomeRepository extends ArrayList<Income>{
     
