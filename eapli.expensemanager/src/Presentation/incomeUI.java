@@ -6,7 +6,8 @@ import java.util.Scanner;
 
 /**
  *
- * @author antoniopedro / joasdavid
+ * @author antoniopedro
+ * @author joasdavid
  */
 public class incomeUI extends BaseUI{
     @Override
