@@ -10,7 +10,7 @@ import java.math.BigDecimal;
 
 /**
  *
- * @author i110687
+ * @author noobshark & PIPOKID
  */
 public class WeekExpenditureUI extends BaseUI {
     
