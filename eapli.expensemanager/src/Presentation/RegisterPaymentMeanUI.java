@@ -5,7 +5,7 @@
 package Presentation;
 
 import Controllers.PaymentMeanController;
-import Model.PaymentMean;
+import Model.PaymentType;
 import java.util.Scanner;
 
 /**
@@ -23,7 +23,8 @@ public abstract class RegisterPaymentMeanUI extends BaseUI{
         String descricao = in.nextLine();
 
         PaymentMeanController pmc = new PaymentMeanController();
-        pmc.RegisterPaymentMean(descricao);
+        
+        pmc.RegisterPaymentMean(PaymentType.Cash);
 
     }
     public String getActionName(){
