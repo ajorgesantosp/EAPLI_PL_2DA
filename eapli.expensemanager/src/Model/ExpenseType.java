@@ -36,26 +36,4 @@ public class ExpenseType {
          throw new IllegalArgumentException();
       this.description = description;
    }
-
-   /**
-    * Gets the description of this ExpenseType
-    *
-    * @return the description
-    * @deprecated change to getDescription()
-    */
-   @Deprecated
-   public String getExpType() {
-      return getDescription();
-   }
-
-   /**
-    * Sets the description of this ExpenseType
-    *
-    * @param description the new description
-    * @deprecated change to setDescription(string)
-    */
-   @Deprecated
-   public void setExpType(String expType) {
-      setDescription(expType);
-   }
 }
