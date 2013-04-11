@@ -28,5 +28,10 @@ public class MonthsExpenditureGraphicUI extends BaseUI {
     public String getActionName() {
         return "Months Expenditure Graphic";
     }
+
+    @Override
+    public void showBalance() {
+        
+    }
     
 }
