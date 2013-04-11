@@ -19,4 +19,12 @@ public abstract class BaseUI {
      * @return nome da acção
      */
     public abstract String getActionName();
+    
+    /**
+     * Mostrar ...
+     */
+    public void showBalance(){
+        
+    }
 }
+

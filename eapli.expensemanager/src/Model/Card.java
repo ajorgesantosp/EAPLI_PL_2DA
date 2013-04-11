@@ -9,8 +9,15 @@ package Model;
 public abstract class Card extends PaymentMean {
    private int number;
 
+   public Card(int id, PaymentType type, int number, String description) {
+      super(id, type, description);
+      setNumber(number);
+   }
+   
+   @Deprecated
    public Card(PaymentType type, String description, int number) {
-      super(type, description);
+      super(-1, type, description);
+      setNumber(number);
    }
 
    /**

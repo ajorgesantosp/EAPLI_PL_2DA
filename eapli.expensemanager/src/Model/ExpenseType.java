@@ -3,37 +3,14 @@ package Model;
 /**
  * This class represents an expense type. Expense class depends on ExpenseType
  *
- * @author 1110119/1110285 (artur-kk / kameluh)
+ * @author 1110119/1110285 (artur-kk / kameluh) + gilfmc & RitaNogueira
  */
-public class ExpenseType {
-   
-   private String description;
-   
-   public ExpenseType(String description) {
-      setDescription(description);
+public class ExpenseType extends BaseType {   
+   public ExpenseType(int id, String description) {
+      super(id, description);
    }
    
    public ExpenseType(ExpenseType eT) {
-      this.description = eT.description;
-   }
-
-   /**
-    * Gets the description of this ExpenseType
-    *
-    * @return the description
-    */
-   public String getDescription() {
-      return description;
-   }
-
-   /**
-    * Sets the description of this ExpenseType
-    *
-    * @param description the new description
-    */
-   public void setDescription(String description) {
-      if (description == null)
-         throw new IllegalArgumentException();
-      this.description = description;
+      super(eT);
    }
 }
