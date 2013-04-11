@@ -3,7 +3,7 @@ package Model;
 /**
  * Some classes inherit this class in order to contain a few base attributes like id and description.
  *
- * @author gilfmc & RitaNogueira
+ * @author gilfmc & RitaNogueira + 1110119/1110285 (artur-kk / kameluh)
  */
 public class BaseType {
    private int id;
@@ -60,4 +60,11 @@ public class BaseType {
          throw new IllegalArgumentException();
       this.description = description;
    }
+
+    @Override
+    public String toString() {
+        return "id=" + id + ", description=" + description + ";\n";
+    }
+   
+   
 }

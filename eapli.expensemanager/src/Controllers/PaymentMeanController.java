@@ -4,9 +4,9 @@
  */
 package Controllers;
 
-import Model.PaymentMean;
-import Model.PaymentType;
-import Persistence.PaymentMeanRepository;
+import Model.*;
+import Persistence.*;
+import java.math.BigDecimal;
 
 /**
  *
@@ -17,23 +17,25 @@ public class PaymentMeanController {
     public PaymentMeanController() {
     }
 
-    public void RegisterPaymentMean(PaymentType type, String descricao) {
+    public void RegisterPaymentMean(PaymentType type, Object... args) {
+        PaymentMean mean = null;
         switch(type){
             case Cash:
                 
-//                PaymentMean mean = new PaymentMean(descricao);
+                mean = new Cash(type, (String)args[0]);
 //                PaymentMeanRepository repository = new PaymentMeanRepository();
                 break;
             case Check:
-                
+                mean = new Check((String)args[0], (String)args[1], (Integer)args[2], (BigDecimal)args[3]);
                 break;
             case CreditCard:
-                
+                mean = new CreditCard((String)args[0], (Integer)args[1]);
                 break;
-            case DebitCard:
-                
+            case DebitCard: 
+                mean = new DebitCard((String)args[0], (Integer)args[1]);
                 break;
         }
-//        repository.save(mean);
+        PaymentMeanRepository pay = new PaymentMeanRepository();
+        pay.save(mean);
     }
 }
