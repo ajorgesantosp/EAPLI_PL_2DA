@@ -5,36 +5,20 @@ package Model;
  *
  * @author i110156 + gilfmc & RitaNogueira
  */
-public abstract class PaymentMean {
+public abstract class PaymentMean extends BaseType {
    private PaymentType type;
-   private String description;
 
-   public PaymentMean(PaymentType type, String description) {
+   public PaymentMean(int id, PaymentType type, String description) {
+      super(id, description);
       this.type = type;
-      setDescription(description);
-   }
-
-   public String toString() {
-      return getDescription();
    }
 
    /**
-    * Gets the description of this PaymentMean
+    * Gets the type of this PaymentMean
     *
-    * @return the description
+    * @return the type
     */
-   public String getDescription() {
-      return description;
-   }
-
-   /**
-    * Sets the description of this PaymentMean
-    *
-    * @param description the new description
-    */
-   public void setDescription(String description) {
-      if (description == null)
-         throw new IllegalArgumentException();
-      this.description = description;
+   public PaymentType getTypeDescription() {
+      return type;
    }
 }

@@ -17,6 +17,11 @@ public class BaseType {
       setId(id);
       setDescription(description);
    }
+   
+   public BaseType(BaseType baseType) {
+      setId(baseType.id);
+      setDescription(baseType.description);
+   }
 
    /**
     * Gets the id of this object

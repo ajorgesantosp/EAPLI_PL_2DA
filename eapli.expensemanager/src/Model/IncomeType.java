@@ -11,6 +11,6 @@ public class IncomeType extends BaseType {
    }
 
    public IncomeType(IncomeType incomeType) {
-      super(incomeType.getId(), incomeType.getDescription());
+      super(incomeType);
    }
 }
