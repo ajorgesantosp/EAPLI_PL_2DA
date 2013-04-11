@@ -9,10 +9,11 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import sun.util.calendar.CalendarDate;
 
 /**
  *
- * @author losa
+ * @author losa + PIPOKID + noobshark
  */
 public class ExpenseRepository implements IExpenseRepository {
     // class member
@@ -47,6 +48,35 @@ public class ExpenseRepository implements IExpenseRepository {
     public ArrayList<Expense> getExpenses(){
         return (ArrayList)listExpense;
     }
+    
+    /**
+     * Returns an ArrayList with the Expenses between 2 CalendarDates
+     * @param startDate
+     * @param endDate
+     * @return 
+     */
+    public ArrayList<Expense> getExpenses(CalendarDate startDate, CalendarDate endDate){
+        CalendarDate expDate;
+        ArrayList<Expense> weekExp = new ArrayList<Expense>();
+        ArrayList<Expense> expenses = (ArrayList)listExpense;
+        for(Expense e:expenses){
+            expDate = e.getCalendarDate();
+            //if((expDate.getYear()==startDate.getYear() || expDate.getYear()==endDate.getYear()) && (expDate.getMonth()==startDate.getMonth() || expDate.getMonth()==endDate.getMonth()) && expDate.getDayOfMonth()>=startDate.getDayOfMonth() && expDate.getDayOfMonth()<=endDate.getDayOfMonth()){
+            if(expDate.getYear() == startDate.getYear() || expDate.getYear() == endDate.getYear()){
+                if(startDate.getMonth() == endDate.getMonth() && expDate.getMonth() == startDate.getMonth()){
+                    if(expDate.getDayOfMonth() >= startDate.getDayOfMonth() && expDate.getDayOfMonth() <= endDate.getDayOfMonth()){
+                        weekExp.add(e);
+                    }
+                } else if(expDate.getMonth() >= startDate.getMonth() && expDate.getMonth() <= endDate.getMonth()){
+                    if((expDate.getMonth() == startDate.getMonth() && expDate.getDayOfMonth()>= startDate.getDayOfMonth()) || (expDate.getMonth() == endDate.getMonth() && expDate.getDayOfMonth()<=endDate.getDayOfMonth())){
+                        weekExp.add(e);
+                    }
+                }
+            }
+        }
+        return weekExp;
+    }
+        
 
     @Override
     public Iterator<Expense> iterator() {
