@@ -12,12 +12,23 @@ public class Check extends PaymentMean {
    private BigDecimal amount;
    private String bank;
 
-   public Check(String description, String bank, int number, BigDecimal amount) {
-      super(PaymentType.Check, description);
+   public Check(int id, PaymentType type, BigDecimal amount, String bank, int number, String description) {
+      super(id, type, description);
       if (amount.signum() == -1 || amount.signum() == 0)
          throw new IllegalArgumentException();
       this.number = number;
       this.amount = amount;
+      this.bank = bank;
+   }
+
+   @Deprecated
+   public Check(String description, String bank, int number, BigDecimal amount) {
+      super(-1, PaymentType.Check, description);
+      if (amount.signum() == -1 || amount.signum() == 0)
+         throw new IllegalArgumentException();
+      this.number = number;
+      this.amount = amount;
+      this.bank = bank;
    }
 
    /**

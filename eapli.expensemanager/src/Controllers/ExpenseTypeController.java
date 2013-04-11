@@ -22,8 +22,9 @@ public class ExpenseTypeController {
         System.out.println("* * *  REGISTER AN EXPENSE TYPE  * * *\n");
 
         String type = Console.readLine("Expense type name:");
+        int id = Console.readInteger("Expense type ID:");
 
-        ExpenseType expenseType = new ExpenseType (type);
+        ExpenseType expenseType = new ExpenseType (id, type);
         ExpenseTypeRepository repo = new ExpenseTypeRepository();
         repo.save(expenseType);
 
