@@ -5,6 +5,7 @@
 package Presentation;
 
 import Controllers.MonthsExpenditureGraphicController;
+import Controllers.WeekExpenditureController;
 import eapli.util.Console;
 import java.util.ArrayList;
 
@@ -31,7 +32,8 @@ public class MonthsExpenditureGraphicUI extends BaseUI {
 
     @Override
     public void showBalance() {
-        
+        WeekExpenditureController wec = new WeekExpenditureController();
+        System.out.print("Week balance: " + wec.getAmountWeekExpenses(wec.getCurrentWeekExpenses()));
     }
     
 }
