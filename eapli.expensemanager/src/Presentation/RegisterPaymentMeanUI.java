@@ -12,7 +12,7 @@ import java.util.Scanner;
  *
  * @author Joao
  */
-public class RegisterPaymentMeanUI {
+public abstract class RegisterPaymentMeanUI extends BaseUI{
 
     public RegisterPaymentMeanUI() {
     }
@@ -25,5 +25,11 @@ public class RegisterPaymentMeanUI {
         PaymentMeanController pmc = new PaymentMeanController();
         pmc.RegisterPaymentMean(descricao);
 
+    }
+    public String getActionName(){
+        return "Payment Mean Register";
+    }
+    public void showBalance(){
+        
     }
 }
