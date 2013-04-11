@@ -6,8 +6,10 @@ package Model;
  * @author gilmfc & RitaNogueira
  */
 public class IncomeType extends BaseType {
-   public IncomeType(int id, String description) {
-      super(id, description);
+   public static int NEXT_ID = 1;
+   
+   public IncomeType(String description) {
+      super(NEXT_ID++, description);
    }
 
    public IncomeType(IncomeType incomeType) {

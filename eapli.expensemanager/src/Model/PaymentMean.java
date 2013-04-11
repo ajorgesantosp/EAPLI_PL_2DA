@@ -6,10 +6,11 @@ package Model;
  * @author i110156 + gilfmc & RitaNogueira
  */
 public abstract class PaymentMean extends BaseType {
+   public static int NEXT_ID = 1;
    private PaymentType type;
 
    public PaymentMean(int id, PaymentType type, String description) {
-      super(id, description);
+      super(NEXT_ID, description);
       this.type = type;
    }
 

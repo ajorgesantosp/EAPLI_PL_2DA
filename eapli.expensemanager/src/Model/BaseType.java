@@ -65,6 +65,4 @@ public class BaseType {
     public String toString() {
         return "id=" + id + ", description=" + description + ";\n";
     }
-   
-   
 }
