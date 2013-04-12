@@ -25,8 +25,8 @@ public class MonthExpenditureUI  extends BaseUI{
         }
     }
     
-    public BigDecimal showBalance(){
-        return mec.getAmountMonthExpenses(mec.getMonthExpenses());
+    public void showBalance(){
+        System.out.println("expenses:"+ mec.getAmountMonthExpenses(mec.getMonthExpenses()));
     }
     
     
