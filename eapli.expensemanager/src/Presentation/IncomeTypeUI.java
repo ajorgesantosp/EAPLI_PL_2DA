@@ -19,7 +19,7 @@ public class IncomeTypeUI extends BaseUI{
         System.out.println(" *** Income type ***\n");
         IncomeTypeController inc = new IncomeTypeController();
         inc.ListAllTypes();
-        System.out.println("0 -> Register Income Type ");
+        System.out.println("0 - Register Income Type ");
         System.out.println("Option:  ");
         
         
@@ -44,7 +44,7 @@ public class IncomeTypeUI extends BaseUI{
             return new IncomeTypeController().getLast();
             
         }else{
-            return new IncomeTypeController().getIncome(type);
+            return new IncomeTypeController().getIncomeType(type);
         }
         
         
