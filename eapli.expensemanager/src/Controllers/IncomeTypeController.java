@@ -19,7 +19,7 @@ public class IncomeTypeController {
         repo.save(inc);
     }
     
-    public IncomeType getIncome(int id){
+    public IncomeType getIncomeType(int id){
         IncomeTypeRepository repo = new IncomeTypeRepository();
         return repo.getIncType(id);
         
