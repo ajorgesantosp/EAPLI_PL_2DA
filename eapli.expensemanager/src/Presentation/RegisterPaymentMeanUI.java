@@ -36,16 +36,28 @@ public abstract class RegisterPaymentMeanUI extends BaseUI {
             int number = in.nextInt();
             System.out.println("Insert description:");
             String description = in.nextLine();
-            pmc.RegisterPaymentMean(PaymentType.Check);
+            pmc.RegisterPaymentMean(PaymentType.Check, id, amount, bank, number, description);
         }
         if (tipo.equals("CreditCard")) {
-            pmc.RegisterPaymentMean(PaymentType.CreditCard);
+            System.out.println("Insert check number:");
+            int number = in.nextInt();
+            System.out.println("Insert description:");
+            String description = in.nextLine();
+            pmc.RegisterPaymentMean(PaymentType.CreditCard, description, number);
         }
         if (tipo.equals("DebitCard")) {
-            pmc.RegisterPaymentMean(PaymentType.DebitCard);
+            System.out.println("Insert check number:");
+            int number = in.nextInt();
+            System.out.println("Insert description:");
+            String description = in.nextLine();
+            pmc.RegisterPaymentMean(PaymentType.DebitCard, description, number);
         }
         if (tipo.equals("Cash")) {
-            pmc.RegisterPaymentMean(PaymentType.Cash);
+            System.out.println("Insert check id:");
+            int id = in.nextInt();
+            System.out.println("Insert description:");
+            String description = in.nextLine();
+            pmc.RegisterPaymentMean(PaymentType.Cash, id, description);
         }
     }
 
