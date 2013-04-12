@@ -42,7 +42,11 @@ public class IncomeTypeRepository {
     
     public void listAllTypes(){
         for (IncomeType incomeType : listIncomeType) {
-            System.out.println(incomeType.getDescription());
+            System.out.println(incomeType.getId()+ " - " + incomeType.getDescription());
         }
+    }
+    
+    public IncomeType getLast(){
+        return listIncomeType.get(listIncomeType.size());
     }
 }

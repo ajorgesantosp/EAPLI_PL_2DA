@@ -30,4 +30,9 @@ public class IncomeTypeController {
         IncomeTypeRepository repo = new IncomeTypeRepository();
         repo.listAllTypes();
     }   
+    
+    public IncomeType getLast(){
+        return new IncomeTypeRepository().getLast();
+        
+    }
 }
