@@ -44,7 +44,7 @@ public class IncomeTypeUI extends BaseUI{
             return new IncomeTypeController().getLast();
             
         }else{
-            return new IncomeTypeController().getIncome(type);
+            return new IncomeTypeController().getIncomeType(type);
         }
         
         
