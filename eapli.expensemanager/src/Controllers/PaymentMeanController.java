@@ -21,12 +21,11 @@ public class PaymentMeanController {
         PaymentMean mean = null;
         switch(type){
             case Cash:
-                
-                mean = new Cash(type, (String)args[0]);
+                mean = new Cash((Integer)args[0], type, (String)args[1]);
 //                PaymentMeanRepository repository = new PaymentMeanRepository();
                 break;
             case Check:
-                mean = new Check((String)args[0], (String)args[1], (Integer)args[2], (BigDecimal)args[3]);
+                mean = new Check((Integer)args[0], type, (BigDecimal)args[2], (String)args[3], (Integer)args[4], (String)args[4]);
                 break;
             case CreditCard:
                 mean = new CreditCard((String)args[0], (Integer)args[1]);
