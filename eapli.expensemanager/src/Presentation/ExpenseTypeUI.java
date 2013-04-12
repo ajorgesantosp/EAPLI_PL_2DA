@@ -45,7 +45,7 @@ class ExpenseTypeUI extends BaseUI {
 
                     System.out.println();
                     for (ExpenseType expT : controllerExpT.getAllExpTypes()) {
-                        System.out.println(expT.getExpType());
+                        System.out.println(expT.getDescription());
                     }
                     System.out.println();
                     Console.readLine("Press enter to continue"); //pausar a consola
