@@ -13,11 +13,21 @@ import Persistence.IncomeTypeRepository;
  */
 public class IncomeTypeController {
     
-    public IncomeType getIncome(String type){
-        IncomeType inc = new IncomeType(type);
+    public void saveIncomeType(String des){
+        IncomeType inc = new IncomeType(des);
         IncomeTypeRepository repo = new IncomeTypeRepository();
         repo.save(inc);
-        return inc;
     }
     
+    public IncomeType getIncome(int id){
+        IncomeTypeRepository repo = new IncomeTypeRepository();
+        return repo.getIncType(id);
+        
+    }
+    
+    public void ListAllTypes()
+    {
+        IncomeTypeRepository repo = new IncomeTypeRepository();
+        repo.listAllTypes();
+    }   
 }

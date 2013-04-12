@@ -17,9 +17,11 @@ public class IncomeTypeUI extends BaseUI{
     @Override
     public void doShow() {
         System.out.println(" *** Income type ***\n");
-        System.out.println("Insert the Income type: ");
-        Scanner sc = new Scanner(System.in);
-        getType(sc.nextLine());
+        IncomeTypeController inc = new IncomeTypeController();
+        inc.ListAllTypes();
+        System.out.println("0 -> Register Income Type ");
+        
+        
     }
 
     @Override
@@ -27,7 +29,16 @@ public class IncomeTypeUI extends BaseUI{
         return "Income type";
     }
     
-    public IncomeType getType(String type){
+    public IncomeType getType(int type){
         return new IncomeTypeController().getIncome(type);
+    }
+
+
+    public void registerIncomeType(String des){
+        System.out.println(" Inserte new Income Type:\n");
+        Scanner sc = new Scanner(System.in);
+        String desc = sc.nextLine();
+        new IncomeTypeController().saveIncomeType(desc);
+    
     }
 }

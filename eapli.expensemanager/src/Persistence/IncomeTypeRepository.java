@@ -20,7 +20,16 @@ public class IncomeTypeRepository {
     public void save(IncomeType incT)
     {
         if (incT==null) throw new IllegalArgumentException();
-        listIncomeType.add(incT);
+        
+        int last = listIncomeType.size()-1;
+        for (IncomeType incomeType : listIncomeType) {
+            if(incomeType.getDescription().equalsIgnoreCase(incT.getDescription())){
+                break;
+            }
+            if(incomeType.getDescription().equals(listIncomeType.get(last).getDescription())){
+                listIncomeType.add(incT);
+            }
+        }
     }
     
     public List<IncomeType> getListOfTypes(){
@@ -28,7 +37,12 @@ public class IncomeTypeRepository {
     }
     
     public IncomeType getIncType(int pos){
-       return listIncomeType.get(pos);
+       return listIncomeType.get(pos-1);
     }
     
+    public void listAllTypes(){
+        for (IncomeType incomeType : listIncomeType) {
+            System.out.println(incomeType.getDescription());
+        }
+    }
 }
