@@ -30,6 +30,14 @@ public class ExpenseTypeController {
 
         System.out.println("Expense type saved successfully!");
     }
+     
+    public void registerType(String description, int id) {
+        ExpenseType expenseType = new ExpenseType(id, description);
+        ExpenseTypeRepository repo = new ExpenseTypeRepository();
+        repo.save(expenseType);
+        
+        System.out.println("Expense type saved successfully!");
+    }
     
     public List<ExpenseType> getAllExpTypes(){
         ExpenseTypeRepository repo = new ExpenseTypeRepository();
