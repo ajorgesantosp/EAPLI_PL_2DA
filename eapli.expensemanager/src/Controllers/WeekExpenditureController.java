@@ -32,10 +32,4 @@ public class WeekExpenditureController extends BaseController{
         }
         return total;
     }
-    
-    private WeekExpenditureController controller = new WeekExpenditureController();
-    
-    public BaseController getController(){
-        return controller;
-    }
 }
