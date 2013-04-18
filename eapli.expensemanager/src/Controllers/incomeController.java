@@ -21,7 +21,7 @@ public class incomeController {
         
                 
         Income inc=new Income(desc, data, BigDecimal.valueOf(amount), type);
-        incomeRepository rep= incomeRepository.getInstance();
-        rep.add(inc);
+        incomeRepository rep= new incomeRepository();
+        rep.save(inc);
     }
 }
