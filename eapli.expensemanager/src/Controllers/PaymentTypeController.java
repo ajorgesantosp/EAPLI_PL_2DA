@@ -19,12 +19,13 @@ public class PaymentTypeController {
     public PaymentTypeController() {
     }
 
-    public void registerType(String what) {
-        PaymentType type = new PaymentType(what);
-        PaymentTypeRepository repo = new PaymentTypeRepository();
-        repo.save(type);
-    }
-
+    //Unused, Payment Types are enum type.
+    /*public void registerType(String what) {
+     PaymentType type = new PaymentType(what);
+     PaymentTypeRepository repo = new PaymentTypeRepository();
+     repo.save(type);
+     }*/
+    
     public int showPaymentTypes() {
         PaymentTypeRepository repo = new PaymentTypeRepository();
         return repo.showPaymentTypes();
