@@ -33,27 +33,27 @@ class ExpenseRegisterUI extends BaseUI {
             System.out.println("List of Types:");
             ExpenseRegisterController controller = new ExpenseRegisterController();
             ArrayList<ExpenseType> listType = controller.getListType();
-
             int sizeOfListType = listType.size();
             for (int i = 0 ; i < sizeOfListType ; i++)
             {
                 System.out.println("Pos: " + i);
                 System.out.println(listType.get(i));
-            }      
+            }
+            
             //get the object expense type
             int posType = Console.readInteger("Select the position of the type: ");
             ExpenseType expenseType = controller.getObjectType(posType);
             
             //get the full list of payment mean and show it on the screen
             System.out.println("List of Payment Means:");
-            ArrayList<PaymentMean> listPaymentMean = controller.getListPaymentMean();
-            
+            ArrayList<PaymentMean> listPaymentMean = controller.getListPaymentMean();            
             int sizeOfListPaymentMean = listPaymentMean.size();
             for (int i = 0 ; i < sizeOfListPaymentMean ; i++)
             {
                 System.out.println("Pos: " + i);
                 System.out.println(listPaymentMean.get(i));
             }
+            
             //get the object payment mean
             int posPaymentMean = Console.readInteger("Select the position of the payment mean: ");
             PaymentMean paymentMean = controller.getPaymentMean(posPaymentMean);
