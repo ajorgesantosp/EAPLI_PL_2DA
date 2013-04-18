@@ -16,6 +16,10 @@ public class ExpenseRecord {
     private int year;
     private int month;
     private BigDecimal val = new BigDecimal(0);
+    
+    public ExpenseRecord(){
+        
+    }
 
     public ExpenseRecord(int year, int month, BigDecimal val) {
         this.year = year;
