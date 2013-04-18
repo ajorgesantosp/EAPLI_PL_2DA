@@ -5,6 +5,7 @@
 package Presentation;
 
 import Controllers.PaymentMeanController;
+import Model.PaymentMean;
 import Model.PaymentType;
 import java.math.BigDecimal;
 import java.util.List;
@@ -68,9 +69,14 @@ public abstract class RegisterPaymentMeanUI extends BaseUI {
 
     public void showBalance() {
     }
-    
-    public List getPaymentMeans(){
+
+    public List getPaymentMeans() {
         PaymentMeanController pmc = new PaymentMeanController();
         return pmc.getPaymentMeans();
+    }
+
+    public PaymentMean getPaymentMeanIndex(int index) {
+        PaymentMeanController pmc = new PaymentMeanController();
+        return pmc.getPaymentMeanIndex(index);
     }
 }

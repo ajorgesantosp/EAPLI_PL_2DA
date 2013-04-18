@@ -13,8 +13,8 @@ import java.util.List;
  * @author i110156
  */
 public class PaymentMeanRepository {
-    
-  private static List<PaymentMean> listMean = new ArrayList<PaymentMean>();
+
+    private static List<PaymentMean> listMean = new ArrayList<PaymentMean>();
 
     public PaymentMeanRepository() {
     }
@@ -26,7 +26,11 @@ public class PaymentMeanRepository {
         listMean.add(mean);
     }
 
-    public List getPaymentMeans(){
+    public List getPaymentMeans() {
         return listMean;
+    }
+
+    public PaymentMean getPaymentMeanIndex(int index) {
+        return listMean.get(index);
     }
 }
