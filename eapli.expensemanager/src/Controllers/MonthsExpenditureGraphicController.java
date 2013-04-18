@@ -13,7 +13,7 @@ import java.util.ArrayList;
  *
  * @author noobshark & PIPOKID
  */
-public class MonthsExpenditureGraphicController {
+public class MonthsExpenditureGraphicController extends BaseController{
     /*
      * Construtor base da classe
      */

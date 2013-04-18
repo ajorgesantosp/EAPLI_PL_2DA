@@ -16,6 +16,6 @@ import java.math.BigDecimal;
 public class PaymentTypeBootstrapper {
     static {
         PaymentTypeRepository repo = new PaymentTypeRepository();
-        repo.save(new PaymentType("Money"));
+        //repo.save(new PaymentType("Money"));
     }
 }

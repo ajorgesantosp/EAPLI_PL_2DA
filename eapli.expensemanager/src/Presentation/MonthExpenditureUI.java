@@ -27,14 +27,15 @@ public class MonthExpenditureUI  extends BaseUI{
     }
     
     public void showBalance(){
-        System.out.println("expenses:"+ mec.getAmountMonthExpenses(mec.getMonthExpenses()));
+        System.out.println("Month balance:" + mec.getAmountMonthExpenses(mec.getMonthExpenses()));
     }
     
     
 
     @Override
     public void doShow() {
-         System.out.println("Month balance:" + showBalance()); }
+         showBalance(); 
+    }
 
     @Override
     public String getActionName() {
