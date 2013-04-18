@@ -79,4 +79,10 @@ public class MonthsExpenditureGraphicController extends BaseController{
         graphic.add("* = " + max.divide(new BigDecimal(40)));
         return graphic;
     }
+    
+    private MonthsExpenditureGraphicController controller = new MonthsExpenditureGraphicController();
+    
+    public BaseController getController(){
+        return controller;
+    }
 }
