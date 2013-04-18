@@ -67,7 +67,7 @@ public class ExpenseRegisterController {
     {
         PaymentMeanRepository repo = new PaymentMeanRepository();
         List<PaymentMean> paymentList;
-        paymentList = repo.;
+        paymentList = repo.getPaymentMeans();
         return (ArrayList)paymentList;
     }
     
@@ -79,7 +79,7 @@ public class ExpenseRegisterController {
     public PaymentMean getPaymentMean(int posPaymentMean)
     {
         PaymentMeanRepository repo = new PaymentMeanRepository();
-        PaymentMean paymentMean = repo.;
+        PaymentMean paymentMean = repo.getPaymentMeanIndex(posPaymentMean);
         return paymentMean;
     }    
 }
