@@ -5,8 +5,8 @@
 package Persistence;
 
 import Model.PaymentMean;
-import Model.PaymentType;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -14,7 +14,7 @@ import java.util.ArrayList;
  */
 public class PaymentMeanRepository {
     
-  private static ArrayList<PaymentMean> listMean = new ArrayList<PaymentMean>();
+  private static List<PaymentMean> listMean = new ArrayList<PaymentMean>();
 
     public PaymentMeanRepository() {
     }
@@ -26,5 +26,7 @@ public class PaymentMeanRepository {
         listMean.add(mean);
     }
 
-    
+    public List getPaymentMeans(){
+        return listMean;
+    }
 }
