@@ -7,6 +7,7 @@ package Controllers;
 import Model.*;
 import Persistence.*;
 import java.math.BigDecimal;
+import java.util.List;
 
 /**
  *
@@ -36,5 +37,10 @@ public class PaymentMeanController {
         }
         PaymentMeanRepository pay = new PaymentMeanRepository();
         pay.save(mean);
+    }
+    
+    public List getPaymentMeans(){
+        PaymentMeanRepository rep = new PaymentMeanRepository();
+        return rep.getPaymentMeans();
     }
 }
