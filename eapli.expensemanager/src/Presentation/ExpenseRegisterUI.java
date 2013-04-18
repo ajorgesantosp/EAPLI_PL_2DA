@@ -6,6 +6,7 @@ package Presentation;
 
 import Controllers.ExpenseRegisterController;
 import Model.ExpenseType;
+import Model.PaymentMean;
 
 import eapli.util.Console;
 import java.math.BigDecimal;
@@ -28,6 +29,7 @@ class ExpenseRegisterUI extends BaseUI {
             double value = Console.readDouble("Amount: ");
             BigDecimal amount = new BigDecimal(value);
             
+            //get the full list of expense type and show it on the screen
             System.out.println("List of Types:");
             ExpenseRegisterController controller = new ExpenseRegisterController();
             ArrayList<ExpenseType> listType = controller.getListType();
@@ -37,15 +39,28 @@ class ExpenseRegisterUI extends BaseUI {
             {
                 System.out.println("Pos: " + i);
                 System.out.println(listType.get(i));
-            }
-            
+            }      
+            //get the object expense type
             int posType = Console.readInteger("Select the position of the type: ");
             ExpenseType expenseType = controller.getObjectType(posType);
             
-            controller.registerExpense(description, date, amount, expenseType);
-            System.out.println("expense recorded.");
+            //get the full list of payment mean and show it on the screen
+            System.out.println("List of Payment Means:");
+            ArrayList<PaymentMean> listPaymentMean = controller.getListPaymentMean();
             
-            //TODO - mostrar a lista dos tipos de despesas
+            int sizeOfListPaymentMean = listPaymentMean.size();
+            for (int i = 0 ; i < sizeOfListPaymentMean ; i++)
+            {
+                System.out.println("Pos: " + i);
+                System.out.println(listPaymentMean.get(i));
+            }
+            //get the object payment mean
+            int posPaymentMean = Console.readInteger("Select the position of the payment mean: ");
+            PaymentMean paymentMean = controller.getPaymentMean(posPaymentMean);
+            
+            //save it in the repository
+            controller.registerExpense(description, date, amount, expenseType, paymentMean);
+            System.out.println("expense recorded.");
         }
         
         catch (Exception e)
