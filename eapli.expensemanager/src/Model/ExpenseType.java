@@ -21,4 +21,11 @@ public class ExpenseType extends BaseType {
     public String toString() {
         return "ExpenseType:\n" + super.toString() + ";";
     }
+
+    @Override
+    public boolean equals(Object o) {
+        return ((ExpenseType)o).getId() == getId();
+    }
+    
+    
 }
