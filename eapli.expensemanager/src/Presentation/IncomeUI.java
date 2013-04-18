@@ -1,6 +1,6 @@
 package Presentation;
 
-import Controllers.incomeController;
+import Controllers.IncomeController;
 import Model.IncomeType;
 import java.util.Scanner;
 
@@ -9,7 +9,7 @@ import java.util.Scanner;
  * @author antoniopedro
  * @author joasdavid
  */
-public class incomeUI extends BaseUI{
+public class IncomeUI extends BaseUI{
     @Override
     public void doShow(){
         System.out.println("== ADD NEW INCOME ==");
@@ -25,7 +25,7 @@ public class incomeUI extends BaseUI{
         typeui.doShow();
         //String escolha = ler.nextLine();
         IncomeType type=typeui.getIncomeType();
-        incomeController inc=new incomeController();
+        IncomeController inc=new IncomeController();
         inc.registIncome(amount, date, desc, type);
         
     }
