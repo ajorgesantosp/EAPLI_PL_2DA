@@ -79,4 +79,9 @@ public abstract class RegisterPaymentMeanUI extends BaseUI {
         PaymentMeanController pmc = new PaymentMeanController();
         return pmc.getPaymentMeanIndex(index);
     }
+    
+    public void showPaymentMeans(){
+        PaymentMeanController pmc = new PaymentMeanController();
+        pmc.showPaymentMeans();
+    }
 }

@@ -48,4 +48,9 @@ public class PaymentMeanController {
         PaymentMeanRepository rep = new PaymentMeanRepository();
         return rep.getPaymentMeanIndex(index);
     }
+    
+    public void showPaymentMeans(){
+        PaymentMeanRepository rep = new PaymentMeanRepository();
+        rep.showPaymentMeans();
+    }
 }
