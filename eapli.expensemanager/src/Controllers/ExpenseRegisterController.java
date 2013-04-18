@@ -6,6 +6,7 @@ package Controllers;
 
 import Model.Expense;
 import Model.ExpenseType;
+import Model.PaymentMean;
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -21,8 +22,8 @@ public class ExpenseRegisterController {
     public ExpenseRegisterController() {
     }    
     
-    public void registerExpense(String what, Date date, BigDecimal amount, ExpenseType type_pos) {
-        Expense expense = new Expense(what, date, amount, type_pos);
+    public void registerExpense(String what, Date date, BigDecimal amount, ExpenseType type_pos, PaymentMean paymentMean) {
+        Expense expense = new Expense(what, date, amount, type_pos, paymentMean);
         ExpenseRepository repo = new ExpenseRepository();
         repo.save(expense);
     }
@@ -40,6 +41,21 @@ public class ExpenseRegisterController {
         ExpenseTypeRepository repo = new ExpenseTypeRepository();
         ExpenseType expenseType = repo.getExpType(pos_type);
         return expenseType;
+    }
+    
+    public ArrayList<PaymentMean> getListPaymentMean()
+    {
+        PaymentMeanRepository repo = new PaymentMeanRepository();
+        List<PaymentMean> paymentList;
+        paymentList = repo.;
+        return (ArrayList)paymentList;
+    }
+    
+    public PaymentMean getPaymentMean(int posPaymentMean)
+    {
+        PaymentMeanRepository repo = new PaymentMeanRepository();
+        PaymentMean paymentMean = repo.;
+        return paymentMean;
     }
     
     
