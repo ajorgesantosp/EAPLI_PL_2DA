@@ -13,18 +13,10 @@ import sun.util.calendar.CalendarDate;
 
 public class ExpenseRecord {
 
-    private int year;
-    private int month;
-    private BigDecimal val = new BigDecimal(0);
-    
-    public ExpenseRecord(){
-        
-    }
+    private BigDecimal total = new BigDecimal(0);
+    ArrayList<Expense> expenses;
 
-    public ExpenseRecord(int year, int month, BigDecimal val) {
-        this.year = year;
-        this.month = month;
-        this.val = val;
+    public ExpenseRecord() {
     }
 
     public ArrayList<Expense> getCurrentWeekExpenses() {
@@ -49,48 +41,78 @@ public class ExpenseRecord {
         return expenses;
     }
 
-    public ArrayList<Expense> getAnyMonthExpenses(int month, int year) {
-        ArrayList<Expense> AnyMonthExp = new ArrayList<Expense>();
-        ArrayList<Expense> expenses;
-        DateTime datetimer = new DateTime();
-        Calendar today = datetimer.today();
-        int current_month = datetimer.currentMonth();
-        int current_week = datetimer.currentWeekNumber();
-        int current_year = datetimer.currentYear();
-        int chosenMonth = month;
-        int chosenYear = year;
-        ExpenseRepository repo = new ExpenseRepository();
-        expenses = repo.getExpenses();
-        CalendarDate expDate;
-        for (Expense e : expenses) {
-            if (e.getDate().getYear() == year) {
-                if (e.getDate().getMonth() == month) {
-                    this.val = this.val.add(e.getAmount());
-                }
-            }
-        }
-        return AnyMonthExp;
-    }
+    /* Visualizacao das despesas do mes e ano corrente */
+    public ArrayList<Expense> getCurrentMonthExpenses() {
 
-    public ArrayList<Expense> getMonthExpenses() {
-        ArrayList<Expense> monthExp = new ArrayList<Expense>();
-        ArrayList<Expense> expenses;
-        DateTime datetimer = new DateTime();
-        Calendar today = datetimer.today();
-        int current_month = datetimer.currentMonth();
-        int current_week = datetimer.currentWeekNumber();
-        int current_year = datetimer.currentYear();
+        int year = DateTime.currentYear();
+        int month = DateTime.currentMonth();
+
         ExpenseRepository repo = new ExpenseRepository();
         expenses = repo.getExpenses();
         CalendarDate expDate;
         for (Expense e : expenses) {
             expDate = e.getCalendarDate();
-             if (e.getDate().getYear() == current_year) {
-                if (e.getDate().getMonth() == current_month) {
-                    this.val = this.val.add(e.getAmount());
-                }
+            if (expDate.getMonth() == month && expDate.getYear() == year) {
+                expenses.add(e);
             }
         }
-        return monthExp;
+        return expenses;
+    }
+
+    /* Visualizacao das despesas de um determinado mes e ano corrente */
+    public ArrayList<Expense> getAnyMonthExpenses(int month, int year) {
+
+        ExpenseRepository repo = new ExpenseRepository();
+        expenses = repo.getExpenses();
+        CalendarDate expDate;
+        for (Expense e : expenses) {
+            expDate = e.getCalendarDate();
+            if (expDate.getMonth() == month && expDate.getYear() == year) {
+                expenses.add(e);
+            }
+        }
+        return expenses;
+    }
+
+    /* Visualizacao do gasto do mes corrente */
+    public BigDecimal getMonthExpenses() {
+
+        int year = DateTime.currentYear();
+        int month = DateTime.currentMonth();
+
+        CalendarDate expDate;
+        for (Expense e : expenses) {
+            expDate = e.getCalendarDate();
+            if (expDate.getMonth() == month && expDate.getYear() == year) {
+                total = total.add(e.getAmount());
+            }
+        }
+        return total;
+    }
+
+    /* Visualizacao do  gasto do mes por parametro */
+    public BigDecimal getMonthExpenses(int month, int year) {
+
+        CalendarDate expDate;
+        for (Expense e : expenses) {
+            expDate = e.getCalendarDate();
+            if (expDate.getMonth() == month && expDate.getYear() == year) {
+                total = total.add(e.getAmount());
+            }
+        }
+        return total;
+    }
+    
+    /* Consulta despesas por tipo */
+    public ArrayList<Expense> getExpensesByType(ExpenseType expt) {
+
+        for (Expense e : expenses) {
+            // verificar igualdade com (equals)
+            if (e.getExpenseType().getDescription().equals(expt.getDescription())) {
+                expenses.add(e);
+            }
+        }
+
+        return expenses;
     }
 }
