@@ -21,12 +21,12 @@ public class Expense {
     private Date date;
     BigDecimal amount;
     private ExpenseType type;
-    private PaymentType paymentType;
+    private PaymentMean paymentMean;
     
     protected Expense() {}
     
     public Expense( String description, Date dateOccurred, BigDecimal amount,
-            ExpenseType type, PaymentType paymentType) {
+            ExpenseType type, PaymentMean paymentMean) {
         if (description == null || dateOccurred == null || amount == null) {
             throw new IllegalArgumentException();
         }
@@ -38,21 +38,21 @@ public class Expense {
         this.date = dateOccurred;
         this.amount = amount;
         this.type = type;
-        this.paymentType = paymentType;
+        this.paymentMean = paymentMean;
     }
     
     public Expense( String description, int year, int month, int day, BigDecimal
-            amount, ExpenseType type, PaymentType paymentType) {
-        this( description, DateTime.newDate(year, month, day), amount, type, paymentType);
+            amount, ExpenseType type, PaymentMean paymentMean) {
+        this( description, DateTime.newDate(year, month, day), amount, type, paymentMean);
     }
     
     public BigDecimal getAmount() {
         return amount;
     }
     
-    public PaymentType getPaymentType()
+    public PaymentMean getPaymentMean()
     {
-        return paymentType;
+        return paymentMean;
     }
 
     public Date getDate() {
