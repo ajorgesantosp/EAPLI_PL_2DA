@@ -13,7 +13,7 @@ import java.util.ArrayList;
  *
  * @author PIPOKID + noobshark
  */
-public class WeekExpenditureController {
+public class WeekExpenditureController extends BaseController{
     
     public WeekExpenditureController(){
         
