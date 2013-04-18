@@ -15,10 +15,10 @@ import java.util.List;
  * @author antoniopedro
  * @author joasdavid
  */
-public class incomeRepository {
+public class IncomeRepository {
     
     private static List<Income> incomes=new ArrayList<Income>();
-    public incomeRepository() {
+    public IncomeRepository() {
     }
      public void save(Income e)
     {
