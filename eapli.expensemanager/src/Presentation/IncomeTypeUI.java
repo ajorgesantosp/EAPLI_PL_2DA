@@ -4,7 +4,9 @@
  */
 package Presentation;
 
-import Controllers.IncomeTypeController;
+import Controllers.ListIncomeTypeController;
+import Controllers.RegisterIncomeTypeController;
+import Controllers.SelectIncomeTypeController;
 import Model.IncomeType;
 import java.util.Scanner;
 
@@ -17,8 +19,7 @@ public class IncomeTypeUI extends BaseUI{
     @Override
     public void doShow() {
         System.out.println(" *** Income type ***\n");
-        IncomeTypeController inc = new IncomeTypeController();
-        inc.ListAllTypes();
+        ListIncomeTypeController inc = new ListIncomeTypeController();
         System.out.println("0 - Register Income Type ");
         System.out.println("Option:  ");
         
@@ -39,12 +40,13 @@ public class IncomeTypeUI extends BaseUI{
             System.out.println(" Inserte new Income Type:");
         
             String desc = sc.nextLine();
-            new IncomeTypeController().saveIncomeType(desc);
+            RegisterIncomeTypeController resg = new RegisterIncomeTypeController(desc);
             
-            return new IncomeTypeController().getLast();
+            
+            return new SelectIncomeTypeController().getLast();
             
         }else{
-            return new IncomeTypeController().getIncomeType(type);
+            return new SelectIncomeTypeController().getIncomeType(type);
         }
         
         
@@ -56,7 +58,7 @@ public class IncomeTypeUI extends BaseUI{
         System.out.println(" Inserte new Income Type:\n");
         Scanner sc = new Scanner(System.in);
         String desc = sc.nextLine();
-        new IncomeTypeController().saveIncomeType(desc);
+        new RegisterIncomeTypeController(des);
     
     }
 }
