@@ -1,5 +1,7 @@
 package Presentation;
 
+import Controllers.BaseController;
+
 /**
  * Classe abstracta necessária, principalmente, para as interfaces acessíveis
  * directamente a partir do menu
@@ -26,5 +28,7 @@ public abstract class BaseUI {
     public void showBalance(){
         
     }
+    
+    protected abstract BaseController controller();
 }
 
