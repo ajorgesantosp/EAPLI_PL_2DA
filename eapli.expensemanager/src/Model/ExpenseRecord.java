@@ -5,7 +5,6 @@
 package Model;
 
 import Persistence.ExpenseRepository;
-import Persistence.ExpenseTypeRepository;
 import eapli.util.DateTime;
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -14,7 +13,7 @@ import sun.util.calendar.CalendarDate;
 
 /**
  *
- * @author miniclip22 & ... & noobshark & PIPOKID
+ * @author miniclip22 & fmnabreu & noobshark & PIPOKID
  */
 
 public class ExpenseRecord {
@@ -49,11 +48,45 @@ public class ExpenseRecord {
     }
     
     /**
-     * Returns a list of a defined week expenses.
+     * Returns a list of a defined Month expenses.
      * @param startDate
      * @param endDate
      * @return ArrayList<Expense>
      */
+    
+    public ArrayList<Expense> getCurrentMonthExpenses() {
+        //Calculate the end and beginning dates of the current Month. 
+        //Example: April 2013= startDate= 1st, April.
+        //EndDate=April 30th, 2013.
+        DateTime datetimer = new DateTime();
+        Calendar today = datetimer.today();
+        int current_month = datetimer.currentMonth();
+        int current_year = datetimer.currentYear();
+        CalendarDate startDate = null, endDate = null;
+        startDate.setYear(current_year);
+        startDate.setMonth(current_month);
+        startDate.setDayOfMonth(1);
+        endDate.setYear(current_year);
+        endDate.setMonth(current_month);
+        if (current_month==1 || current_month==3 || current_month==5 || current_month==7 || current_month==8 || current_month==10 || current_month==12)
+        endDate.setDayOfMonth(31);
+        else if (current_month==2){
+                if (current_year%400 == 0 || current_year%100 != 0 && current_year%4 == 0)
+                     endDate.setDayOfMonth(29);
+                else endDate.setDayOfMonth(28);
+        }
+        else endDate.setDayOfMonth(30);
+       
+       return getAnyMonthExpenses(startDate,endDate);
+    }
+    
+    public ArrayList<Expense> getAnyMonthExpenses(CalendarDate startDate, CalendarDate endDate){
+        ArrayList<Expense> expenses;
+        ExpenseRepository repo = new ExpenseRepository();
+        expenses = repo.getExpenses(startDate, endDate);
+        return expenses;
+    }
+    
     public ArrayList<Expense> getAnyWeekExpenses(CalendarDate startDate, CalendarDate endDate){
         ArrayList<Expense> expenses;
         ExpenseRepository repo = new ExpenseRepository();
@@ -74,62 +107,13 @@ public class ExpenseRecord {
         return total;
     }
 
-    /* Visualizacao do gasto do mes corrente */
-    /* public BigDecimal getMonthExpenses() {
-
-     int year = DateTime.currentYear();
-     int month = DateTime.currentMonth();
-
-     CalendarDate expDate;
-     for (Expense e : expenses) {
-     expDate = e.getCalendarDate();
-     if (expDate.getMonth() == month && expDate.getYear() == year) {
-     total = total.add(e.getAmount());
-     }
-     }
-     return total;
-     }*/
-
-    /* Visualizacao do  gasto do mes por parametro */
-    /*   public BigDecimal getMonthExpenses(int month, int year) {
-
-     CalendarDate expDate;
-     for (Expense e : expenses) {
-     expDate = e.getCalendarDate();
-     if (expDate.getMonth() == month && expDate.getYear() == year) {
-     total = total.add(e.getAmount());
-     }
-     }
-     return total;
-     }
-     */
-    public BigDecimal getTotalAmountExpenses(ArrayList<Expense> monthExp) {
-
-        BigDecimal total = new BigDecimal(0);
-
-        for (Expense e : monthExp) {
-            total = total.add(e.getAmount());
+    public BigDecimal getAmountMonthExpenses(ArrayList<Expense> MonthExpenditure){
+        BigDecimal total=null;
+        for(Expense e:MonthExpenditure){
+            total=total.add(e.getAmount());
         }
         return total;
     }
-    /* Consulta gastos do mes por tipo */
-    /*public BigDecimal getAmountExpensesByType(ExpenseType expt) {
-
-     int year = DateTime.currentYear();
-     int month = DateTime.currentMonth();
-
-     CalendarDate expDate;
-     for (Expense e : expenses) {
-     // verificar igualdade com (equals)
-     expDate = e.getCalendarDate();
-     if (expDate.getMonth() == month && expDate.getYear() == year
-     && e.getExpenseType().equals(expt)) {
-     total = total.add(e.getAmount());
-     }
-     }
-
-     return total;
-     }*/
     
     /**
      * Returns a list of objects with the type and the amount of expenses of a month.
@@ -137,10 +121,12 @@ public class ExpenseRecord {
      * @param year
      * @return ArrayList<TypeTotalExpense>
      */
+  
+    /*
     public ArrayList<TypeTotalExpense> getMonthExpensesbyType(int month, int year){
         ExpenseTypeRepository repo = new ExpenseTypeRepository();
     	ArrayList<ExpenseType> expensetypes = (ArrayList<ExpenseType>) repo.getListOfTypes();
-    	ArrayList<Expense> expenses = getMonthExpenses(month,year);
+    	ArrayList<Expense> expenses = getAnyMonthExpenses(month,year);
         ArrayList<BigDecimal> totals = new ArrayList<BigDecimal>();
         BigDecimal total;
         ArrayList<TypeTotalExpense> totalexpenses = new ArrayList<TypeTotalExpense>();
@@ -180,5 +166,5 @@ public class ExpenseRecord {
         	totalexpenses.add(new TypeTotalExpense(expensetypes.get(i),totals.get(i)));
         }
         return totalexpenses;
-    }
+    }*/
 }
