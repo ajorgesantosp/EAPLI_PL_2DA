@@ -4,22 +4,24 @@
  */
 package Presentation;
 
+import Controllers.BaseController;
 import Controllers.ListIncomeTypeController;
 import Controllers.RegisterIncomeTypeController;
 import Controllers.SelectIncomeTypeController;
 import Model.IncomeType;
+import java.io.Serializable;
 import java.util.Scanner;
 
 /**
  *
  * @author jorgeneves & joaofcmoreira
  */
-public class IncomeTypeUI extends BaseUI{
-
+public class IncomeTypeUI extends BaseUI implements Serializable{
+    private BaseController controller;
     @Override
     public void doShow() {
         System.out.println(" *** Income type ***\n");
-        ListIncomeTypeController inc = new ListIncomeTypeController();
+        controller = new ListIncomeTypeController();
         System.out.println("0 - Register Income Type ");
         System.out.println("Option:  ");
         
@@ -37,16 +39,18 @@ public class IncomeTypeUI extends BaseUI{
         Scanner sc = new Scanner(System.in);
         int type = sc.nextInt();
         if(type==0){
-            System.out.println(" Inserte new Income Type:");
+            System.out.println(" Insert new Income Type:");
         
             String desc = sc.nextLine();
-            RegisterIncomeTypeController resg = new RegisterIncomeTypeController(desc);
             
+            controller = new RegisterIncomeTypeController(desc);
+
             
-            return new SelectIncomeTypeController().getLast();
+            controller = new SelectIncomeTypeController();
+            return ((SelectIncomeTypeController)controller).getLast();
             
         }else{
-            return new SelectIncomeTypeController().getIncomeType(type);
+            return ((SelectIncomeTypeController)controller).getIncomeType(type);
         }
         
         
@@ -58,7 +62,12 @@ public class IncomeTypeUI extends BaseUI{
         System.out.println(" Inserte new Income Type:\n");
         Scanner sc = new Scanner(System.in);
         String desc = sc.nextLine();
-        new RegisterIncomeTypeController(des);
+        controller = new RegisterIncomeTypeController(des);
     
+    }
+
+    @Override
+    protected BaseController controller() {
+        return controller;
     }
 }

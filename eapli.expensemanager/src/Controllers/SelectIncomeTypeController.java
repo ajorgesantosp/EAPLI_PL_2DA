@@ -6,12 +6,13 @@ package Controllers;
 
 import Model.IncomeType;
 import Persistence.IncomeTypeRepository;
+import java.io.Serializable;
 
 /**
  *
  * @author Jorge Neves
  */
-public class SelectIncomeTypeController {
+public class SelectIncomeTypeController  extends BaseController implements Serializable {
     
     
     public IncomeType getIncomeType(int id){

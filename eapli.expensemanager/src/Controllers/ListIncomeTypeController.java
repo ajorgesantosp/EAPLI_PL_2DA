@@ -5,12 +5,13 @@
 package Controllers;
 
 import Persistence.IncomeTypeRepository;
+import java.io.Serializable;
 
 /**
  *
  * @author Jorge Neves
  */
-public class ListIncomeTypeController {
+public class ListIncomeTypeController extends BaseController implements Serializable{
     public ListIncomeTypeController()
     {
         IncomeTypeRepository repo = new IncomeTypeRepository();

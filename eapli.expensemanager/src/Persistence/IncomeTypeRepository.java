@@ -5,6 +5,7 @@
 package Persistence;
 
 import Model.IncomeType;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +13,7 @@ import java.util.List;
  *
  * @author jorgeneves & joaofcmoreira
  */
-public class IncomeTypeRepository {
+public class IncomeTypeRepository implements Serializable {
     private static List<IncomeType> listIncomeType= new ArrayList<IncomeType>();
 
     public IncomeTypeRepository() {}
