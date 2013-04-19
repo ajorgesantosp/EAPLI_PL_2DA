@@ -6,7 +6,9 @@ import Model.Expense;
 import Model.ExpenseType;
 
 /**
- * @author 1110484 & 1110494
+ * Class used by ShowMonthExpendituresByExpenseTypeController containing all the needed data to accomplish the use case
+ * 
+ * @author gilfmc & RitaNogueira
  */
 public class ExpenseTypeWithExpenseIterator implements Iterable<Expense> {
 	private ExpenseType expenseType;

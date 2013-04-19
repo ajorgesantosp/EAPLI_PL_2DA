@@ -7,7 +7,9 @@ import Persistence.ExpenseRepository;
 import Persistence.ExpenseTypeRepository;
 
 /**
- * @author 1110484 & 1110494
+ * Controller for use case "Show month expenditures by expense type"
+ * 
+ * @author gilfmc & RitaNogueira
  */
 public class ShowMonthExpendituresByExpenseTypeController extends BaseController implements Iterable<ExpenseTypeWithExpenseIterator> {
 	private int month, year;
