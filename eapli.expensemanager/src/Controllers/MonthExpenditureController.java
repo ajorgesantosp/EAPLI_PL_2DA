@@ -11,19 +11,6 @@ public class MonthExpenditureController extends BaseController {
 
     public MonthExpenditureController() {
     }
-
-    public ArrayList<Expense> getCurrentMonthExpenses() {
-        ExpenseRecord er = new ExpenseRecord();
-        return er.getCurrentMonthExpenses();
-    }
-
-    public BigDecimal getAmountMonthExpenses(ArrayList<Expense> monthExp) {
-        BigDecimal total = new BigDecimal(0);
-        for (Expense e : monthExp) {
-            total = total.add(e.getAmount());
-        }
-        return total;
-    }
     
     /*
      public ArrayList<Expense> getAnyMonthExpenses(int month, int year) {
