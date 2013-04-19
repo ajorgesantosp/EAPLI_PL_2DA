@@ -11,6 +11,11 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import sun.util.calendar.CalendarDate;
 
+/**
+ *
+ * @author miniclip22 & ... & noobshark & PIPOKID
+ */
+
 public class ExpenseRecord {
 
     public ExpenseRecord() {
@@ -24,7 +29,6 @@ public class ExpenseRecord {
         int current_week = datetimer.currentWeekNumber();
         int current_year = datetimer.currentYear();
         Calendar first = datetimer.firstDateOfWeek(current_year, current_week), last = datetimer.lastDateOfWeek(current_year, current_week);
-        ExpenseRepository repo = new ExpenseRepository();
         CalendarDate startDate = null, endDate = null;
         startDate.setYear(current_year);
         startDate.setMonth(current_month);
@@ -34,6 +38,14 @@ public class ExpenseRecord {
         endDate.setDayOfMonth(last.DAY_OF_MONTH);
         //---------------------------------------------------------------
         ArrayList<Expense> expenses;
+        ExpenseRepository repo = new ExpenseRepository();
+        expenses = repo.getExpenses(startDate, endDate);
+        return expenses;
+    }
+    
+    public ArrayList<Expense> getAnyWeekExpenses(CalendarDate startDate, CalendarDate endDate){
+        ArrayList<Expense> expenses;
+        ExpenseRepository repo = new ExpenseRepository();
         expenses = repo.getExpenses(startDate, endDate);
         return expenses;
     }
@@ -94,4 +106,10 @@ public class ExpenseRecord {
 
      return total;
      }*/
+    
+    public ArrayList<TypeTotalExpense> getMonthExpensesbyType(int month, int year){
+        ArrayList<TypeTotalExpense> expenses = new ArrayList<TypeTotalExpense>();
+        
+        return expenses;
+    }
 }
