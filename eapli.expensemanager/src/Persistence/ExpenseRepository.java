@@ -5,7 +5,6 @@
 package Persistence;
 
 import Model.*;
-import eapli.util.DateTime;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -80,63 +79,6 @@ public class ExpenseRepository implements IExpenseRepository {
         return weekExp;
     }
 
-    /* Visualizacao das despesas do mes e ano corrente */
-    public ArrayList<Expense> getCurrentMonthExpenses() {
-
-        ArrayList<Expense> expenses = new ArrayList<Expense>();
-
-        int year = DateTime.currentYear();
-        int month = DateTime.currentMonth();
-
-        ExpenseRepository repo = new ExpenseRepository();
-        expenses = repo.getExpenses();
-        CalendarDate expDate;
-        for (Expense e : listExpense) {
-            expDate = e.getCalendarDate();
-            if (expDate.getMonth() == month && expDate.getYear() == year) {
-                expenses.add(e);
-            }
-        }
-        return expenses;
-    }
-
-    /* Visualizacao das despesas de um determinado mes e ano corrente */
-    public ArrayList<Expense> getAnyMonthExpenses(int month, int year) {
-
-        ArrayList<Expense> expenses = new ArrayList<Expense>();
-
-        ExpenseRepository repo = new ExpenseRepository();
-        expenses = repo.getExpenses();
-        CalendarDate expDate;
-        for (Expense e : expenses) {
-            expDate = e.getCalendarDate();
-            if (expDate.getMonth() == month && expDate.getYear() == year) {
-                expenses.add(e);
-            }
-        }
-        return expenses;
-    }
-
-    /* Consulta despesas do mes por tipo */
-    public ArrayList<Expense> getAllExpensesByType(ExpenseType expt) {
-
-        ArrayList<Expense> expenses = new ArrayList<Expense>();
-
-        int year = DateTime.currentYear();
-        int month = DateTime.currentMonth();
-
-        CalendarDate expDate;
-        for (Expense e : expenses) {
-            // verificar igualdade com (equals)
-            expDate = e.getCalendarDate();
-            if (expDate.getMonth() == month && expDate.getYear() == year
-                    && e.getExpenseType().equals(expt)) {
-                expenses.add(e);
-            }
-        }
-        return expenses;
-    }
-
     @Override
     public Iterator<Expense> iterator() {
         Iterator<Expense> exp = new Iterator<Expense>() {
@@ -154,6 +96,48 @@ public class ExpenseRepository implements IExpenseRepository {
             @Override
             public Expense next() {
                 return listExpense.get(i++);
+            }
+
+            @Override
+            public void remove() {
+                listExpense.remove(i);
+            }
+        };
+        return exp;
+    }
+
+    public Iterator<Expense> iterator(final ExpenseType expenseType, final int year, final int month) {
+        Iterator<Expense> exp = new Iterator<Expense>() {
+            int i = 0;
+            boolean found = false, hasNext = false;
+
+            private void search() {
+                found = true;
+                final int size = listExpense.size();
+                for (; i < size; i++) {
+                    if (listExpense.get(i).getExpenseType().equals(expenseType) && listExpense.get(i).getCalendarDate().getYear() == year
+                            && listExpense.get(i).getCalendarDate().getMonth() == month) {
+                        hasNext = true;
+                    }
+                }
+                hasNext = false;
+            }
+
+            @Override
+            public boolean hasNext() {
+                if (!found) {
+                    search();
+                }
+                return hasNext;
+            }
+
+            @Override
+            public Expense next() {
+                if (!found) {
+                    search();
+                }
+                found = false;
+                return listExpense.get(i);
             }
 
             @Override
