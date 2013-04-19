@@ -5,6 +5,7 @@
 package Persistence;
 
 import Model.*;
+import eapli.util.DateTime;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -36,39 +37,41 @@ public class ExpenseRepository implements IExpenseRepository {
         final int size = listExpense.size();
         if (size > 0) {
             Expense last = listExpense.get(0);
-            for(int i=1; i<size; i++){
-                if(listExpense.get(i).getDate().compareTo(last.getDate())>0)
+            for (int i = 1; i < size; i++) {
+                if (listExpense.get(i).getDate().compareTo(last.getDate()) > 0) {
                     last = listExpense.get(i);
+                }
             }
             return last;
         }
         return null;
     }
-    
-    public ArrayList<Expense> getExpenses(){
-        return (ArrayList)listExpense;
+
+    public ArrayList<Expense> getExpenses() {
+        return (ArrayList) listExpense;
     }
-    
+
     /**
      * Returns an ArrayList with the Expenses between 2 CalendarDates
+     *
      * @param startDate
      * @param endDate
-     * @return 
+     * @return
      */
-    public ArrayList<Expense> getExpenses(CalendarDate startDate, CalendarDate endDate){
+    public ArrayList<Expense> getExpenses(CalendarDate startDate, CalendarDate endDate) {
         CalendarDate expDate;
         ArrayList<Expense> weekExp = new ArrayList<Expense>();
-        ArrayList<Expense> expenses = (ArrayList)listExpense;
-        for(Expense e:expenses){
+        ArrayList<Expense> expenses = (ArrayList) listExpense;
+        for (Expense e : expenses) {
             expDate = e.getCalendarDate();
             //if((expDate.getYear()==startDate.getYear() || expDate.getYear()==endDate.getYear()) && (expDate.getMonth()==startDate.getMonth() || expDate.getMonth()==endDate.getMonth()) && expDate.getDayOfMonth()>=startDate.getDayOfMonth() && expDate.getDayOfMonth()<=endDate.getDayOfMonth()){
-            if(expDate.getYear() == startDate.getYear() || expDate.getYear() == endDate.getYear()){
-                if(startDate.getMonth() == endDate.getMonth() && expDate.getMonth() == startDate.getMonth()){
-                    if(expDate.getDayOfMonth() >= startDate.getDayOfMonth() && expDate.getDayOfMonth() <= endDate.getDayOfMonth()){
+            if (expDate.getYear() == startDate.getYear() || expDate.getYear() == endDate.getYear()) {
+                if (startDate.getMonth() == endDate.getMonth() && expDate.getMonth() == startDate.getMonth()) {
+                    if (expDate.getDayOfMonth() >= startDate.getDayOfMonth() && expDate.getDayOfMonth() <= endDate.getDayOfMonth()) {
                         weekExp.add(e);
                     }
-                } else if(expDate.getMonth() >= startDate.getMonth() && expDate.getMonth() <= endDate.getMonth()){
-                    if((expDate.getMonth() == startDate.getMonth() && expDate.getDayOfMonth()>= startDate.getDayOfMonth()) || (expDate.getMonth() == endDate.getMonth() && expDate.getDayOfMonth()<=endDate.getDayOfMonth())){
+                } else if (expDate.getMonth() >= startDate.getMonth() && expDate.getMonth() <= endDate.getMonth()) {
+                    if ((expDate.getMonth() == startDate.getMonth() && expDate.getDayOfMonth() >= startDate.getDayOfMonth()) || (expDate.getMonth() == endDate.getMonth() && expDate.getDayOfMonth() <= endDate.getDayOfMonth())) {
                         weekExp.add(e);
                     }
                 }
@@ -76,18 +79,76 @@ public class ExpenseRepository implements IExpenseRepository {
         }
         return weekExp;
     }
-        
+
+    /* Visualizacao das despesas do mes e ano corrente */
+    public ArrayList<Expense> getCurrentMonthExpenses() {
+
+        ArrayList<Expense> expenses = new ArrayList<Expense>();
+
+        int year = DateTime.currentYear();
+        int month = DateTime.currentMonth();
+
+        ExpenseRepository repo = new ExpenseRepository();
+        expenses = repo.getExpenses();
+        CalendarDate expDate;
+        for (Expense e : listExpense) {
+            expDate = e.getCalendarDate();
+            if (expDate.getMonth() == month && expDate.getYear() == year) {
+                expenses.add(e);
+            }
+        }
+        return expenses;
+    }
+
+    /* Visualizacao das despesas de um determinado mes e ano corrente */
+    public ArrayList<Expense> getAnyMonthExpenses(int month, int year) {
+
+        ArrayList<Expense> expenses = new ArrayList<Expense>();
+
+        ExpenseRepository repo = new ExpenseRepository();
+        expenses = repo.getExpenses();
+        CalendarDate expDate;
+        for (Expense e : expenses) {
+            expDate = e.getCalendarDate();
+            if (expDate.getMonth() == month && expDate.getYear() == year) {
+                expenses.add(e);
+            }
+        }
+        return expenses;
+    }
+
+    /* Consulta despesas do mes por tipo */
+    public ArrayList<Expense> getAllExpensesByType(ExpenseType expt) {
+
+        ArrayList<Expense> expenses = new ArrayList<Expense>();
+
+        int year = DateTime.currentYear();
+        int month = DateTime.currentMonth();
+
+        CalendarDate expDate;
+        for (Expense e : expenses) {
+            // verificar igualdade com (equals)
+            expDate = e.getCalendarDate();
+            if (expDate.getMonth() == month && expDate.getYear() == year
+                    && e.getExpenseType().equals(expt)) {
+                expenses.add(e);
+            }
+        }
+        return expenses;
+    }
 
     @Override
     public Iterator<Expense> iterator() {
         Iterator<Expense> exp = new Iterator<Expense>() {
-            int i =0;
+            int i = 0;
+
             @Override
             public boolean hasNext() {
-                if(i<listExpense.size())
+                if (i < listExpense.size()) {
                     return true;
-                else
+                } else {
                     return false;
+                }
             }
 
             @Override
@@ -100,8 +161,6 @@ public class ExpenseRepository implements IExpenseRepository {
                 listExpense.remove(i);
             }
         };
-          return exp;    
+        return exp;
     }
 }
-
-

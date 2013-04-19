@@ -33,4 +33,11 @@ public class PaymentMeanRepository {
     public PaymentMean getPaymentMeanIndex(int index) {
         return listMean.get(index);
     }
+    
+    public void showPaymentMeans(){
+        int size = listMean.size();
+        for(int i=0; i<size; i++){
+            System.out.println(listMean.get(i));
+        }
+    }
 }
