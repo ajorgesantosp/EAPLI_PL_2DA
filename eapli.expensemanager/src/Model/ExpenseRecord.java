@@ -5,6 +5,7 @@
 package Model;
 
 import Persistence.ExpenseRepository;
+import Persistence.ExpenseTypeRepository;
 import eapli.util.DateTime;
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -18,9 +19,16 @@ import sun.util.calendar.CalendarDate;
 
 public class ExpenseRecord {
 
+    /**
+     * Empty Constructor
+     */
     public ExpenseRecord() {
     }
 
+    /**
+     * Returns a list of current week expenses.
+     * @return ArrayList<Expense>
+     */
     public ArrayList<Expense> getCurrentWeekExpenses() {
         //Calculo da data de inicio e de fim da semana em que se encontra
         DateTime datetimer = new DateTime();
@@ -37,17 +45,33 @@ public class ExpenseRecord {
         endDate.setMonth(current_month);
         endDate.setDayOfMonth(last.DAY_OF_MONTH);
         //---------------------------------------------------------------
+        return getAnyWeekExpenses(startDate,endDate);
+    }
+    
+    /**
+     * Returns a list of a defined week expenses.
+     * @param startDate
+     * @param endDate
+     * @return ArrayList<Expense>
+     */
+    public ArrayList<Expense> getAnyWeekExpenses(CalendarDate startDate, CalendarDate endDate){
         ArrayList<Expense> expenses;
         ExpenseRepository repo = new ExpenseRepository();
         expenses = repo.getExpenses(startDate, endDate);
         return expenses;
     }
     
-    public ArrayList<Expense> getAnyWeekExpenses(CalendarDate startDate, CalendarDate endDate){
-        ArrayList<Expense> expenses;
-        ExpenseRepository repo = new ExpenseRepository();
-        expenses = repo.getExpenses(startDate, endDate);
-        return expenses;
+    /**
+     * Returns the total amount of an ArrayList<Expense>
+     * @param weekExp
+     * @return BigDecimal
+     */
+    public BigDecimal getAmountWeekExpenses(ArrayList<Expense> weekExp){
+        BigDecimal total=null;
+        for(Expense e:weekExp){
+            total=total.add(e.getAmount());
+        }
+        return total;
     }
 
     /* Visualizacao do gasto do mes corrente */
@@ -107,9 +131,16 @@ public class ExpenseRecord {
      return total;
      }*/
     
+    /**
+     * Returns a list of objects with the type and the amount of expenses of a month.
+     * @param month
+     * @param year
+     * @return ArrayList<TypeTotalExpense>
+     */
     public ArrayList<TypeTotalExpense> getMonthExpensesbyType(int month, int year){
+        ExpenseTypeRepository repo = new ExpenseTypeRepository();
     	ArrayList<ExpenseType> expensetypes = (ArrayList<ExpenseType>) repo.getListOfTypes();
-    	ArrayList<Expense> expenses = null; /*método duarte*/
+    	ArrayList<Expense> expenses = getMonthExpenses(month,year);
         ArrayList<BigDecimal> totals = new ArrayList<BigDecimal>();
         BigDecimal total;
         ArrayList<TypeTotalExpense> totalexpenses = new ArrayList<TypeTotalExpense>();
