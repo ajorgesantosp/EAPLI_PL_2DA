@@ -102,17 +102,42 @@ public class ExpenseRecord {
         }
         return total;
     }
-    
-    /* Consulta despesas por tipo */
-    public ArrayList<Expense> getExpensesByType(ExpenseType expt) {
 
+    /* Consulta despesas do mes por tipo */
+    public ArrayList<Expense> getAllExpensesByType(ExpenseType expt) {
+
+        int year = DateTime.currentYear();
+        int month = DateTime.currentMonth();
+
+        CalendarDate expDate;
         for (Expense e : expenses) {
             // verificar igualdade com (equals)
-            if (e.getExpenseType().getDescription().equals(expt.getDescription())) {
+            expDate = e.getCalendarDate();
+            if (expDate.getMonth() == month && expDate.getYear() == year
+                    && e.getExpenseType().equals(expt)) {
                 expenses.add(e);
             }
         }
 
         return expenses;
+    }
+
+    /* Consulta gastos do mes por tipo */
+    public BigDecimal getAmountExpensesByType(ExpenseType expt) {
+
+        int year = DateTime.currentYear();
+        int month = DateTime.currentMonth();
+
+        CalendarDate expDate;
+        for (Expense e : expenses) {
+            // verificar igualdade com (equals)
+            expDate = e.getCalendarDate();
+            if (expDate.getMonth() == month && expDate.getYear() == year
+                    && e.getExpenseType().equals(expt)) {
+                total = total.add(e.getAmount());
+            }
+        }
+
+        return total;
     }
 }
