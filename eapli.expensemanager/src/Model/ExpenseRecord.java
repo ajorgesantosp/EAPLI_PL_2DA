@@ -108,8 +108,46 @@ public class ExpenseRecord {
      }*/
     
     public ArrayList<TypeTotalExpense> getMonthExpensesbyType(int month, int year){
-        ArrayList<TypeTotalExpense> expenses = new ArrayList<TypeTotalExpense>();
-        
-        return expenses;
+    	ArrayList<ExpenseType> expensetypes = (ArrayList<ExpenseType>) repo.getListOfTypes();
+    	ArrayList<Expense> expenses = null; /*método duarte*/
+        ArrayList<BigDecimal> totals = new ArrayList<BigDecimal>();
+        BigDecimal total;
+        ArrayList<TypeTotalExpense> totalexpenses = new ArrayList<TypeTotalExpense>();
+        for(ExpenseType typeexp : expensetypes) {
+            total = null;
+            for(Expense exp : expenses) {
+                if(typeexp.equals(exp.getExpenseType())) {
+                    total.add(exp.getAmount());
+                }
+            }
+            totals.add(total);
+        }
+        BigDecimal max = totals.get(0);
+        int position = 0;
+        for(int j = 1 ; j < expensetypes.size(); j++) {
+            if(totals.get(j).compareTo(max) == 1) {
+                max = totals.get(j);
+                position = j;
+            }
+        }
+        int size = expensetypes.size();
+        BigDecimal temp1 = null;
+        ExpenseType temp2 = null;
+        for(int j = 0; j < size; j++) {
+            for(int k = 1; k < (size-1); k++) {
+                if(totals.get(k-1).compareTo(totals.get(k))==-1) {
+                    temp1 = totals.get(k-1);
+                    totals.set(k-1, totals.get(k));
+                    totals.set(k, temp1);
+                    temp2 = expensetypes.get(k-1);
+                    expensetypes.set(k-1, expensetypes.get(k));
+                    expensetypes.set(k, temp2);
+                }
+            }
+        }
+        for(int i=0; i < size; i++) {
+        	totalexpenses.add(new TypeTotalExpense(expensetypes.get(i),totals.get(i)));
+        }
+        return totalexpenses;
     }
 }
