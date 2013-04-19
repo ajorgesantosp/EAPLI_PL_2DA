@@ -19,14 +19,20 @@ public class MonthsExpenditureGraphicController extends BaseController{
      */
     
     private ExpenseTypeRepository repo;
+    
+    /**
+     * Creates the controller
+     */
     public MonthsExpenditureGraphicController() {
         repo = new ExpenseTypeRepository();
     }
     
-    /*
-     * Método que cria o formato do gráfico e devolve-o para posterior impressão
+    /**
+     * Receives the month and the year as integers and returns an ArrayList containing the totals and types of expenses during that month
+     * @param int month
+     * @param int year
+     * @return
      */
-    
     public ArrayList<TypeTotalExpense> getMonthExpensesbyType(int month, int year) {
         ExpenseRecord rec = new ExpenseRecord();
         return rec.getMonthExpensesbyType(month, year);
