@@ -1,7 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Presentation;
 
 import Controllers.BaseController;
@@ -29,7 +26,7 @@ public class WeekExpenditureUI extends BaseUI {
 
     @Override
     public void doShow() {
-        System.out.print("Week balance: " + wec.getAmountWeekExpenses(wec.getCurrentWeekExpenses()));
+        System.out.print("Week balance: " + wec.getCurrentWeekExpenses());
     }
 
     @Override
