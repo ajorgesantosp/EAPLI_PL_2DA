@@ -13,7 +13,7 @@ import sun.util.calendar.CalendarDate;
 
 /**
  *
- * @author Paulo Gandra Sousa & RitaNogueira & noobshark & PIPOKID
+ * @author Paulo Gandra Sousa & RitaNogueira & gilfmc & noobshark & PIPOKID
  */
 @Entity
 public class Expense {
