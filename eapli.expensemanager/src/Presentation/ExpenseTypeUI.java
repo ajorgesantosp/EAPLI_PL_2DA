@@ -4,12 +4,10 @@
  */
 package Presentation;
 
-import Controllers.ExpenseRegisterController;
+import Controllers.BaseController;
 import Controllers.ExpenseTypeController;
 import Model.ExpenseType;
 import eapli.util.Console;
-import java.math.BigDecimal;
-import java.util.Date;
 
 /**
  *
@@ -17,6 +15,8 @@ import java.util.Date;
  */
 class ExpenseTypeUI extends BaseUI {
 
+    private ExpenseTypeController controllerExpT = new ExpenseTypeController();
+    
     private void imprimeMenu() {
         System.out.println("========================");
         System.out.println("  EXPENSE TYPE MANAGER  ");
@@ -30,7 +30,7 @@ class ExpenseTypeUI extends BaseUI {
     @Override
     public void doShow() {
         int option;
-        ExpenseTypeController controllerExpT = new ExpenseTypeController();
+        
         do {
             imprimeMenu();
             option = Console.readInteger("Please choose a option");
@@ -56,6 +56,11 @@ class ExpenseTypeUI extends BaseUI {
 
     @Override
     public String getActionName() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return "Expense Type";
+    }
+
+    @Override
+    protected BaseController controller() {
+        return (BaseController) controllerExpT;
     }
 }
