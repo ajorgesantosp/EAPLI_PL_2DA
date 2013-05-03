@@ -1,14 +1,24 @@
 package Model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
 /**
  * Some classes inherit this class in order to contain a few base attributes like id and description.
  *
  * @author gilfmc & RitaNogueira + 1110119/1110285 (artur-kk / kameluh)
  */
+@Entity
 public class BaseType {
+   @Id
+   @GeneratedValue
    private int id;
    private String description;
 
+   public BaseType() {
+   }
+   
    public BaseType(int id) {
       setId(id);
    }
@@ -17,7 +27,7 @@ public class BaseType {
       setId(id);
       setDescription(description);
    }
-   
+
    public BaseType(BaseType baseType) {
       setId(baseType.id);
       setDescription(baseType.description);
@@ -61,8 +71,8 @@ public class BaseType {
       this.description = description;
    }
 
-    @Override
-    public String toString() {
-        return "id=" + id + ", description=" + description + ";\n";
-    }
+   @Override
+   public String toString() {
+      return "id=" + id + ", description=" + description + ";\n";
+   }
 }
