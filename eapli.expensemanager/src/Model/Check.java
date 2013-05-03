@@ -1,16 +1,21 @@
 package Model;
 
 import java.math.BigDecimal;
+import javax.persistence.Entity;
 
 /**
  * This class represents a check.
  *
  * @author gilfmc & RitaNogueira
  */
+@Entity
 public class Check extends PaymentMean {
    private int number;
    private BigDecimal amount;
    private String bank;
+
+   public Check() {
+   }
 
    public Check(int id, PaymentType type, BigDecimal amount, String bank, int number, String description) {
       super(id, type, description);

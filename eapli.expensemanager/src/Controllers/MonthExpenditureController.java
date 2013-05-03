@@ -9,15 +9,10 @@ import Model.ExpenseRecord;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 
-/**
- *
- * @author PIPOKID + noobshark
- */
+
 public class MonthExpenditureController extends BaseController {
 
-    /**
-     * Empty Constructor
-     */
+
     public MonthExpenditureController() {
     }
 
