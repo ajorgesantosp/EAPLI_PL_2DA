@@ -1,23 +1,20 @@
 package Model;
 
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
 
 /**
  * Some classes inherit this class in order to contain a few base attributes like id and description.
  *
  * @author gilfmc & RitaNogueira + 1110119/1110285 (artur-kk / kameluh)
  */
-@Entity
+@MappedSuperclass
 public class BaseType {
    @Id
    @GeneratedValue
    private int id;
    private String description;
-
-   public BaseType() {
-   }
    
    public BaseType(int id) {
       setId(id);
