@@ -1,24 +1,33 @@
 package Presentation;
 
+import Controllers.BaseController;
 import Controllers.LastExpenseController;
 import Model.Expense;
 
 /**
  *
- * @author Rita
+ * @author RitaNogueira
  */
 public class LastExpenseUI extends BaseUI {
-    @Override
-    public void doShow() {
-        Expense exp = new LastExpenseController().getLastExpense();
-        System.out.println("Last expense:\n");
-        System.out.println("Description: " + exp.getDescription() + "\n");
-        System.out.println("Date: " + exp.getDate()+ "\n");
-        System.out.println("Amount: " + exp.getAmount() + "\n");
-    }
+   LastExpenseController controller;
 
-    @Override
-    public String getActionName() {
-        return "Last expense";
-    }
+   @Override
+   public void doShow() {
+      controller = new LastExpenseController();
+      Expense exp = controller.getLastExpense();
+      System.out.println("Last expense:\n");
+      System.out.println("Description: " + exp.getDescription() + "\n");
+      System.out.println("Date: " + exp.getDate() + "\n");
+      System.out.println("Amount: " + exp.getAmount() + "\n");
+   }
+
+   @Override
+   public String getActionName() {
+      return "Last expense";
+   }
+
+   @Override
+   protected BaseController controller() {
+      return controller;
+   }
 }
