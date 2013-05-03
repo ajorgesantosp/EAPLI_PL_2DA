@@ -4,6 +4,7 @@
  */
 package Presentation;
 
+import Controllers.BaseController;
 import Controllers.ExpenseRegisterController;
 import Model.ExpenseType;
 import Model.PaymentMean;
@@ -18,6 +19,9 @@ import java.util.Date;
  * @author Paulo Gandra Sousa
  */
 class ExpenseRegisterUI extends BaseUI {
+    
+    private ExpenseRegisterController controller;
+    
     @Override
     public void doShow() {
         try
@@ -31,7 +35,7 @@ class ExpenseRegisterUI extends BaseUI {
             
             //get the full list of expense type and show it on the screen
             System.out.println("List of Types:");
-            ExpenseRegisterController controller = new ExpenseRegisterController();
+            controller = new ExpenseRegisterController();
             ArrayList<ExpenseType> listType = controller.getListType();
             int sizeOfListType = listType.size();
             for (int i = 0 ; i < sizeOfListType ; i++)
@@ -72,5 +76,10 @@ class ExpenseRegisterUI extends BaseUI {
     @Override
     public String getActionName() {
         return "Register an expense";
+    }
+    @Override
+    protected BaseController controller()
+    {
+        return controller;
     }
 }
