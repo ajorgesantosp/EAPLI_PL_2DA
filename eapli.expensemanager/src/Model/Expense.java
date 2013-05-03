@@ -1,37 +1,44 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package Model;
 
 import eapli.util.DateTime;
 import java.math.BigDecimal;
 import java.util.Date;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
 import sun.util.calendar.CalendarDate;
-
 
 /**
  *
- * @author Paulo Gandra Sousa
+ * @author Paulo Gandra Sousa &RitaNogueira
  */
-
+@Entity
 public class Expense {
-    
+
+    @Id
+    private Long id;
     private String description;
+    @Temporal(javax.persistence.TemporalType.DATE)
+    @Column(name = "expenseDate")
     private Date date;
     BigDecimal amount;
+    @ManyToOne
     private ExpenseType type;
+    @ManyToOne
     private PaymentMean paymentMean;
-    
-    protected Expense() {}
-    
-    public Expense( String description, Date dateOccurred, BigDecimal amount,
+
+    protected Expense() {
+    }
+
+    public Expense(String description, Date dateOccurred, BigDecimal amount,
             ExpenseType type, PaymentMean paymentMean) {
         if (description == null || dateOccurred == null || amount == null) {
             throw new IllegalArgumentException();
         }
         // cannot record a negative expense or a zero EUR expense
-        if (amount.signum() == -1 || amount.signum() ==  0) {
+        if (amount.signum() == -1 || amount.signum() == 0) {
             throw new IllegalArgumentException();
         }
         this.description = description;
@@ -40,27 +47,25 @@ public class Expense {
         this.type = type;
         this.paymentMean = paymentMean;
     }
-    
-    public Expense( String description, int year, int month, int day, BigDecimal
-            amount, ExpenseType type, PaymentMean paymentMean) {
-        this( description, DateTime.newDate(year, month, day), amount, type, paymentMean);
+
+    public Expense(String description, int year, int month, int day, BigDecimal amount, ExpenseType type, PaymentMean paymentMean) {
+        this(description, DateTime.newDate(year, month, day), amount, type, paymentMean);
     }
-    
+
     public BigDecimal getAmount() {
         return amount;
     }
-    
-    public PaymentMean getPaymentMean()
-    {
+
+    public PaymentMean getPaymentMean() {
         return paymentMean;
     }
 
     public Date getDate() {
         return date;
-    }  
-    
-    public CalendarDate getCalendarDate(){
-        CalendarDate data=null;
+    }
+
+    public CalendarDate getCalendarDate() {
+        CalendarDate data = null;
         data.setDayOfMonth(getDate().getDay());
         data.setMonth(getDate().getMonth());
         data.setYear(getDate().getYear());
@@ -73,5 +78,13 @@ public class Expense {
 
     public ExpenseType getExpenseType() {
         return type;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }

@@ -3,17 +3,28 @@ package Model;
 import eapli.util.DateTime;
 import java.math.BigDecimal;
 import java.util.Date;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
 import sun.util.calendar.CalendarDate;
 
 /**
  *
  * @author RitaNogueira & gilmfc
  */
+@Entity
 public class Income {
 
+    @Id
+    private Long id;
     private String description;
+    @Temporal(javax.persistence.TemporalType.DATE)
+    @Column(name = "incomeDate")
     private Date date;
     BigDecimal amount;
+    @ManyToOne
     private IncomeType type;
 
     protected Income() {
@@ -60,5 +71,13 @@ public class Income {
 
     public IncomeType getIncomeType() {
         return type;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }
