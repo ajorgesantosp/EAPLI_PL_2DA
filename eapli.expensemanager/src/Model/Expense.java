@@ -12,12 +12,13 @@ import sun.util.calendar.CalendarDate;
 
 /**
  *
- * @author Paulo Gandra Sousa &RitaNogueira
+ * @author Paulo Gandra Sousa & RitaNogueira & noobshark & PIPOKID
  */
 @Entity
 public class Expense {
 
     @Id
+    @GeneratedValue
     private Long id;
     private String description;
     @Temporal(javax.persistence.TemporalType.DATE)
