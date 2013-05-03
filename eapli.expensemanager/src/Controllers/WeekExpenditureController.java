@@ -13,22 +13,25 @@ import java.util.ArrayList;
  *
  * @author PIPOKID + noobshark
  */
-public class WeekExpenditureController extends BaseController{
-    
-    /**
-     * Empty Constructor
-     */
-    public WeekExpenditureController(){
-        
-    }
-    
-    /**
-     * Returns the current week expenses.
-     * @return ArrayList<Expense>
-     */
-    public ArrayList<Expense> getCurrentWeekExpenses(){
-        ExpenseRecord er = new ExpenseRecord();
-        return er.getCurrentWeekExpenses();
-        
-    }
+public class WeekExpenditureController extends BaseController {
+   /**
+    * Empty Constructor
+    */
+   public WeekExpenditureController() {
+   }
+
+   /**
+    * Returns the current week expenses.
+    *
+    * @return ArrayList<Expense>
+    */
+   public ArrayList<Expense> getCurrentWeekExpenses() {
+      ExpenseRecord er = new ExpenseRecord();
+      return er.getCurrentWeekExpenses();
+
+   }
+
+   public BigDecimal getAmountWeekExpenses(ArrayList<Expense> currentWeekExpenses) {
+      return new ExpenseRecord().getAmountWeekExpenses(currentWeekExpenses);
+   }
 }
