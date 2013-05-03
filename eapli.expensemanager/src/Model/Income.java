@@ -3,6 +3,7 @@ package Model;
 import eapli.util.DateTime;
 import java.math.BigDecimal;
 import java.util.Date;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -24,7 +25,7 @@ public class Income {
     @Column(name = "incomeDate")
     private Date date;
     BigDecimal amount;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private IncomeType type;
 
     protected Income() {

@@ -3,6 +3,7 @@ package Model;
 import eapli.util.DateTime;
 import java.math.BigDecimal;
 import java.util.Date;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -26,9 +27,9 @@ public class Expense {
     @Column(name = "expenseDate")
     private Date date;
     BigDecimal amount;
-    @ManyToOne
+    @ManyToOne (cascade = CascadeType.ALL)
     private ExpenseType type;
-    @ManyToOne
+    @ManyToOne (cascade = CascadeType.ALL)
     private PaymentMean paymentMean;
 
     protected Expense() {
