@@ -23,7 +23,7 @@ public class PaymentMeanController {
         switch (type) {
             case Cash:
                 mean = new Cash((Integer) args[0], type, (String) args[1]);
-//                PaymentMeanRepository repository = new PaymentMeanRepository();
+//                IPaymentMeanRepository repository = new IPaymentMeanRepository();
                 break;
             case Check:
                 mean = new Check((Integer) args[0], type, (BigDecimal) args[2], (String) args[3], (Integer) args[4], (String) args[4]);
@@ -35,22 +35,22 @@ public class PaymentMeanController {
                 mean = new DebitCard((String) args[0], (Integer) args[1]);
                 break;
         }
-        PaymentMeanRepository pay = new PaymentMeanRepository();
+        IPaymentMeanRepository pay = new IMPaymentMeanRepository();
         pay.save(mean);
     }
     
     public List getPaymentMeans() {
-        PaymentMeanRepository rep = new PaymentMeanRepository();
+        IPaymentMeanRepository rep = new IMPaymentMeanRepository();
         return rep.getPaymentMeans();
     }
     
     public PaymentMean getPaymentMeanIndex(int index) {
-        PaymentMeanRepository rep = new PaymentMeanRepository();
+        IPaymentMeanRepository rep = new IMPaymentMeanRepository();
         return rep.getPaymentMeanIndex(index);
     }
     
     public void showPaymentMeans(){
-        PaymentMeanRepository rep = new PaymentMeanRepository();
+        IPaymentMeanRepository rep = new IMPaymentMeanRepository();
         rep.showPaymentMeans();
     }
 }
