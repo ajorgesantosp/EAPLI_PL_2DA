@@ -11,7 +11,7 @@ import Persistence.ExpenseRepository;
  *
  * @author Rita
  */
-public class LastExpenseController {
+public class LastExpenseController extends BaseController{
     
     public LastExpenseController(){
         
