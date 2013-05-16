@@ -9,7 +9,7 @@ import java.io.Serializable;
 
 /**
  *
- * @author Jorge Neves
+ * @author Jorge Neves e Joaofcmoreira
  */
 public class ListIncomeTypeController extends BaseController implements Serializable{
     public ListIncomeTypeController()
