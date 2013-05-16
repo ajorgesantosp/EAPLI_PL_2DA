@@ -26,7 +26,8 @@ public abstract class BaseUI {
      * Mostrar ...
      */
     public void showBalance(){
-        
+        BaseController controller = controller();
+        System.out.println("Current balance: "+ controller.getAmountWeekExpenses(controller.getCurrentWeekExpenses())+"\n");
     }
     
     protected abstract BaseController controller();
