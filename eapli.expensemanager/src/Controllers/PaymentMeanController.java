@@ -13,7 +13,7 @@ import java.util.List;
  *
  * @author i110156
  */
-public class PaymentMeanController {
+public class PaymentMeanController extends BaseController{
     
     public PaymentMeanController() {
     }

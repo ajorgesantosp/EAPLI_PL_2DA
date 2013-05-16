@@ -4,6 +4,7 @@
  */
 package Presentation;
 
+import Controllers.BaseController;
 import Controllers.PaymentMeanController;
 import Model.PaymentMean;
 import Model.PaymentType;
@@ -15,7 +16,9 @@ import java.util.Scanner;
  *
  * @author Joao
  */
-public abstract class RegisterPaymentMeanUI extends BaseUI {
+public class RegisterPaymentMeanUI extends BaseUI {
+    
+PaymentMeanController pmc = new PaymentMeanController();
 
     public RegisterPaymentMeanUI() {
     }
@@ -25,7 +28,7 @@ public abstract class RegisterPaymentMeanUI extends BaseUI {
         System.out.println("Insira o tipo de pagamento(Cash, Check, CreditCard, DebitCard):");
         String tipo = in.nextLine();
 
-        PaymentMeanController pmc = new PaymentMeanController();
+        
         // fazer switch para cada tipo de pagamento
         if (tipo.equals("Check")) {
             System.out.println("Insert check id:");
@@ -83,5 +86,9 @@ public abstract class RegisterPaymentMeanUI extends BaseUI {
     public void showPaymentMeans(){
         PaymentMeanController pmc = new PaymentMeanController();
         pmc.showPaymentMeans();
+    }
+    
+    protected BaseController controller() {
+        return pmc;
     }
 }
