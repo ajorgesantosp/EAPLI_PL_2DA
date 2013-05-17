@@ -5,32 +5,17 @@
 package Persistence;
 
 import Model.ExpenseType;
-import Model.*;
-import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.List;
 /**
  *
- * @author losa
+ * @author 1110119/1110285 (artur-kk / kameluh)
  */
-public class ExpenseTypeRepository{
-    // class member
-    private static List<ExpenseType> listExpenseType= new ArrayList<ExpenseType>();
-
-    public ExpenseTypeRepository() {}
+public interface ExpenseTypeRepository{
     
-    public void save(ExpenseType expT)
-    {
-        if (expT==null) throw new IllegalArgumentException();
-        listExpenseType.add(expT);
-      
-    }
+    public void save(ExpenseType expT);
     
-    public List<ExpenseType> getListOfTypes(){
-        return listExpenseType;
-    }
+    public List<ExpenseType> getListOfTypes();
     
-    public ExpenseType getExpType(int pos){
-       return listExpenseType.get(pos);
-    }
+    public ExpenseType getExpType(int pos);
+    
 }
