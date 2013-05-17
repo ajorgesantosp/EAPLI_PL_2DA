@@ -41,12 +41,12 @@ public class PaymentMeanController extends BaseController{
     
     public List getPaymentMeans() {
         IPaymentMeanRepository rep = new IMPaymentMeanRepository();
-        return rep.getPaymentMeans();
+        return rep.all();
     }
     
     public PaymentMean getPaymentMeanIndex(int index) {
         IPaymentMeanRepository rep = new IMPaymentMeanRepository();
-        return rep.getPaymentMeanIndex(index);
+        return rep.findById(index);
     }
     
     public void showPaymentMeans(){
