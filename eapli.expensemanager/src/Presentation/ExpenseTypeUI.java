@@ -39,7 +39,7 @@ class ExpenseTypeUI extends BaseUI {
                     System.out.println("bye bye ...");
                     return;
                 case 1:
-                    controllerExpT.registerExpenseType();
+                    controllerExpT.registerType();
                     break;
                 case 2:
 
