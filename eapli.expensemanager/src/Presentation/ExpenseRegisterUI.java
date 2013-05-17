@@ -34,10 +34,9 @@ class ExpenseRegisterUI extends BaseUI {
             BigDecimal amount = new BigDecimal(value);
             
             //get the full list of expense type and show it on the screen
-            System.out.println("List of Types:aaaaaaaaaaaaa");
+            System.out.println("List of Types:");
             controller = new ExpenseRegisterController();
             ArrayList<ExpenseType> listType = controller.getListType();
-            System.out.println("TAMANHO DOS TIPOS DE DESPESA " + listType.size());
             int sizeOfListType = listType.size();
             for (int i = 0 ; i < sizeOfListType ; i++)
             {
@@ -52,7 +51,6 @@ class ExpenseRegisterUI extends BaseUI {
             //get the full list of payment mean and show it on the screen
             System.out.println("List of Payment Means:");
             ArrayList<PaymentMean> listPaymentMean = controller.getListPaymentMean();
-            System.out.println("TAMANHO DOS MEIOS DE PAGAMENTO " + listPaymentMean.size());
             int sizeOfListPaymentMean = listPaymentMean.size();
             for (int i = 0 ; i < sizeOfListPaymentMean ; i++)
             {

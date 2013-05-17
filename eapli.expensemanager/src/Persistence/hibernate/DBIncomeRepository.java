@@ -7,32 +7,37 @@ package Persistence.hibernate;
 import Model.Income;
 import Model.IncomeType;
 import Persistence.IncomeRepository;
+import Persistence.PersistenceInit;
 import java.math.BigDecimal;
 import java.util.List;
+import javax.persistence.EntityManager;
+import javax.persistence.Query;
 
 /**
  *
  * @author Antonio
  */
-public class DBIncomeRepository extends JPAUtil<IncomeType> implements IncomeRepository {
+public class DBIncomeRepository implements IncomeRepository {
 
 //falta jpa!!!
 
     @Override
     public void save(Income income) {
-        
-        update(income);
+        EntityManager manager = PersistenceInit.init();
+        manager.getTransaction().begin();
+        manager.persist(income);
+        manager.getTransaction().commit();
+        manager.close();
     }
 
     @Override
     public List<Income> getAll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        EntityManager manager = PersistenceInit.init();
+        Query query = manager.createQuery("select c from Income as c");
+        return query.getResultList();
     }
 
-    @Override
-    public BigDecimal getTotal() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
     
     
     
