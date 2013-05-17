@@ -26,11 +26,11 @@ public class IMPaymentMeanRepository implements IPaymentMeanRepository{
         return mean;
     }
 
-    public List getPaymentMeans() {
+    public List all() {
         return listMean;
     }
 
-    public PaymentMean getPaymentMeanIndex(int index) {
+    public PaymentMean findById(int index) {
         return listMean.get(index);
     }
     
