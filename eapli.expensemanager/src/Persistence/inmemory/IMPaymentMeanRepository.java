@@ -19,6 +19,7 @@ public class IMPaymentMeanRepository implements IPaymentMeanRepository{
     public IMPaymentMeanRepository() {
     }
 
+    @Override
     public PaymentMean save(PaymentMean mean) {
         if (mean == null) {
             throw new IllegalArgumentException();
@@ -27,14 +28,17 @@ public class IMPaymentMeanRepository implements IPaymentMeanRepository{
         return mean;
     }
 
+    @Override
     public List getPaymentMeans() {
         return listMean;
     }
 
+    @Override
     public PaymentMean getPaymentMeanIndex(int index) {
         return listMean.get(index);
     }
     
+    @Override
     public void showPaymentMeans(){
         int size = listMean.size();
         for(int i=0; i<size; i++){
