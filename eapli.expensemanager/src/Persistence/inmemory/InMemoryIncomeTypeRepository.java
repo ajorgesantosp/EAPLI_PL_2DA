@@ -20,6 +20,7 @@ public class InMemoryIncomeTypeRepository implements IncomeTypeRepository{
     public InMemoryIncomeTypeRepository() {
     }
 
+    @Override
     public void save(IncomeType incT) {
         if (incT == null) {
             throw new IllegalArgumentException();
@@ -36,15 +37,15 @@ public class InMemoryIncomeTypeRepository implements IncomeTypeRepository{
         }
     }
 
+    @Override
     public List<IncomeType> getListOfTypes() {
         return listIncomeType;
     }
 
+    @Override
     public IncomeType getIncType(int pos) {
         return listIncomeType.get(pos - 1);
     }
 
-    public IncomeType getLast() {
-        return listIncomeType.get(listIncomeType.size());
-    }
+
 }

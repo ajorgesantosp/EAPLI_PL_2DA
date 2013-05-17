@@ -5,8 +5,6 @@
 package Persistence;
 
 import Model.IncomeType;
-import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -21,5 +19,4 @@ public interface IncomeTypeRepository {
     
     public IncomeType getIncType(int pos);
    
-    public IncomeType getLast();
 }

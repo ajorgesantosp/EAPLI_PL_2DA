@@ -32,9 +32,5 @@ public class HibernateIncomeTypeRepository implements IncomeTypeRepository{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
-    public IncomeType getLast() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
     
 }
