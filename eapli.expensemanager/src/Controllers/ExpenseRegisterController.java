@@ -12,6 +12,7 @@ import java.util.Date;
 import Persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+
 /**
  *
  * @author Paulo Gandra Sousa
@@ -65,7 +66,7 @@ public class ExpenseRegisterController extends BaseController {
      */
     public ArrayList<PaymentMean> getListPaymentMean()
     {
-        PaymentMeanRepository repo = new PaymentMeanRepository();
+        IMPaymentMeanRepository repo = new IMPaymentMeanRepository();
         List<PaymentMean> paymentList;
         paymentList = repo.getPaymentMeans();
         return (ArrayList)paymentList;
@@ -78,7 +79,7 @@ public class ExpenseRegisterController extends BaseController {
      */
     public PaymentMean getPaymentMean(int posPaymentMean)
     {
-        PaymentMeanRepository repo = new PaymentMeanRepository();
+        IMPaymentMeanRepository repo = new IMPaymentMeanRepository();
         PaymentMean paymentMean = repo.getPaymentMeanIndex(posPaymentMean);
         return paymentMean;
     }    
