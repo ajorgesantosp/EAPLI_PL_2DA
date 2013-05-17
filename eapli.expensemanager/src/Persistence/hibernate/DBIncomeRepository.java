@@ -19,7 +19,7 @@ import javax.persistence.Query;
  */
 public class DBIncomeRepository implements IncomeRepository {
 
-//falta jpa!!!
+
 
     @Override
     public void save(Income income) {
@@ -35,6 +35,11 @@ public class DBIncomeRepository implements IncomeRepository {
         EntityManager manager = PersistenceInit.init();
         Query query = manager.createQuery("select c from Income as c");
         return query.getResultList();
+    }
+
+    @Override
+    public BigDecimal getTotal() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     
