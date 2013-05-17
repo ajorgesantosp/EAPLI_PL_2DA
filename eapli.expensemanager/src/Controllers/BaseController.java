@@ -17,6 +17,16 @@ public abstract class BaseController {
    public BigDecimal getAmountWeekExpenses(ArrayList<Expense> currentWeekExpenses) {
       return new ExpenseRecord().getAmountWeekExpenses(currentWeekExpenses);
    }
+   
+   public ArrayList<Expense> getCurrentMonthExpenses() {
+      ExpenseRecord er = new ExpenseRecord();
+      return er.getCurrentMonthExpenses();
+
+   }
+
+   public BigDecimal getAmountMonthExpenses(ArrayList<Expense> currentMonthExpenses) {
+      return new ExpenseRecord().getAmountMonthExpenses(currentMonthExpenses);
+   }
 }
 
    

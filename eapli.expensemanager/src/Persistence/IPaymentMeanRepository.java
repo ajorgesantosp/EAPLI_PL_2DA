@@ -11,9 +11,9 @@ import java.util.List;
  *
  * @author i110156
  */
-public abstract interface IPaymentMeanRepository {
-    public void save(PaymentMean mean);
-    public List getPaymentMeans();
-    public PaymentMean getPaymentMeanIndex(int index);
-    public void showPaymentMeans();
+public interface IPaymentMeanRepository {
+    PaymentMean save(PaymentMean mean);
+    List getPaymentMeans();
+    PaymentMean getPaymentMeanIndex(int index);
+    void showPaymentMeans();
 }
