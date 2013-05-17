@@ -35,7 +35,7 @@ public class InMemoryRepoFactory implements RepositoryFactory{
 
     @Override
     public PaymentMeanRepository getPaymentMeanRepo() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return new IMPaymentMeanRepository();
     }
 
     @Override

@@ -11,7 +11,7 @@ import java.util.List;
 
 /**
  *
- * @author Jorge Neves joaofcmoreira
+ * @author Jorge Neves e joaofcmoreira
  */
 public class InMemoryIncomeTypeRepository implements IncomeTypeRepository{
 

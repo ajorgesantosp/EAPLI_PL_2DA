@@ -6,7 +6,6 @@ package Controllers;
 import Model.ExpenseType;
 import java.util.Date;
 import Model.Income;
-import Model.IncomeRecord;
 
 import Model.IncomeType;
 import Model.PaymentMean;
@@ -20,7 +19,7 @@ import java.util.List;
  * @author joasdavid
  */
 public class RegisterIncomeController extends BaseController {
-    IncomeRepository etr = Persistence.PersistenceFactory.instance().buildRepositoryFactory().getIncomeRepo();
+    IncomeRepository etr = Persistence.PersistenceFactory.buildRepositoryFactory().getIncomeRepo();
     public void registIncome(double amount,String date,String desc, IncomeType type){
         Date data=new Date(date);
         
@@ -31,10 +30,10 @@ public class RegisterIncomeController extends BaseController {
         
     }
     public List<ExpenseType> getExpenseTypes() {
-        return Persistence.PersistenceFactory.instance().buildRepositoryFactory().getExpenseTypeRepo().getListOfTypes();
+        return Persistence.PersistenceFactory.buildRepositoryFactory().getExpenseTypeRepo().getListOfTypes();
     }
     
     public List<PaymentMean> getPaymentMethods() {
-        return Persistence.PersistenceFactory.instance().buildRepositoryFactory().getPaymentMeanRepo().getPaymentMeans();
+        return Persistence.PersistenceFactory.buildRepositoryFactory().getPaymentMeanRepo().getPaymentMeans();
     }
 }
