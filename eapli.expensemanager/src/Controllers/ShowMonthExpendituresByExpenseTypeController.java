@@ -23,7 +23,7 @@ public class ShowMonthExpendituresByExpenseTypeController extends BaseController
 	@Override
 	public Iterator<ExpenseTypeWithExpenseIterator> iterator() {
 		return new Iterator<ExpenseTypeWithExpenseIterator>() {
-			Iterator<ExpenseType> it = Persistence.PersistenceFactory.instance().buildRepositoryFactory().getExpenseTypeRepo().getListOfTypes().iterator();
+			Iterator<ExpenseType> it = Persistence.PersistenceFactory.buildRepositoryFactory().getExpenseTypeRepo().getListOfTypes().iterator();
 
 			@Override
 			public ExpenseTypeWithExpenseIterator next() {

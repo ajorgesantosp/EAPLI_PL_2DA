@@ -29,12 +29,12 @@ public class IMPaymentMeanRepository implements IPaymentMeanRepository{
     }
 
     @Override
-    public List getPaymentMeans() {
+    public List all() {
         return listMean;
     }
 
     @Override
-    public PaymentMean getPaymentMeanIndex(int index) {
+    public PaymentMean findById(int index) {
         return listMean.get(index);
     }
     
