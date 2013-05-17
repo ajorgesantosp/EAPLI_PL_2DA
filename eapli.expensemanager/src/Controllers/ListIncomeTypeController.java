@@ -18,7 +18,7 @@ public class ListIncomeTypeController extends BaseController implements Serializ
     public ListIncomeTypeController(){    } 
     
     public List<IncomeType> getAll (){
-        IncomeTypeRepository incTypes = PersistenceFactory.instance().buildRepositoryFactory().getIncomeTypeRepo();
-        return incTypes.getListOfTypes();
+        IncomeTypeRepository repo = PersistenceFactory.instance().buildRepositoryFactory().getIncomeTypeRepo();
+        return repo.getListOfTypes();
     }
 }
