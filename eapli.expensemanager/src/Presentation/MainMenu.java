@@ -13,7 +13,10 @@ public class MainMenu {
         new ExpenseBootstrapper();
         
         // adicionar aqui instâncias de classes com extends BaseUI para aparecem no menu
-        BaseUI options[] = new BaseUI[]{ new ExpenseRegisterUI(), new LastExpenseUI(), new WeekExpenditureUI(), new MonthExpenditureUI(), new RegisterPaymentMeanUI() };
+        BaseUI options[] = new BaseUI[]{ new ExpenseRegisterUI(), 
+            new LastExpenseUI(), new WeekExpenditureUI(), 
+            new MonthExpenditureUI(), new RegisterPaymentMeanUI(), 
+            new RegisterPaymentMeanUI() };
         
         do {
             System.out.println("===================");
@@ -30,7 +33,8 @@ public class MainMenu {
                 System.out.println("bye bye ...");
                 break;
             }
-            else if(option >= 1 && option <= options.length) options[option - 1].doShow();
+            else if(option >= 1 && option <= options.length) 
+                options[option - 1].doShow();
         } while (true);
     }
 }
