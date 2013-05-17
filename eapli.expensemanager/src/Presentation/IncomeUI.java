@@ -25,13 +25,16 @@ public class IncomeUI extends BaseUI {
         System.out.println("Description");
         String desc = ler.nextLine();
         System.out.println("Type");
-        RegisterIncomeTypeUI typeui = new RegisterIncomeTypeUI();
-        typeui.doShow();
-        //String escolha = ler.nextLine();
-        //IncomeType type = typeui.getIncomeType();
+        ShowIncomeTypeUI show=new ShowIncomeTypeUI();
+        show.doShow();
+        
+       SelectIncomeTypeUI select=new SelectIncomeTypeUI();
+       select.doShow();
+       int id=ler.nextInt();
+       IncomeType type=select.getIncomeType(id);
         
         controller = new RegisterIncomeController();
-        //((RegisterIncomeController) controller).registIncome(amount, date, desc, type);
+        ((RegisterIncomeController) controller).registIncome(amount, date, desc, type);
 
     }
 
