@@ -35,9 +35,9 @@ public class PersistenceFactory {
      */
     public RepositoryFactory buildRepositoryFactory() {
         boolean isHibernateFactory = true;
+        
         if (isHibernateFactory) {
             return new HibernateRepoFactory();
-
         } else {
             return new InMemoryRepoFactory();
         }
