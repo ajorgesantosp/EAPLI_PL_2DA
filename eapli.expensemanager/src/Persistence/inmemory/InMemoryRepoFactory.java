@@ -30,7 +30,7 @@ public class InMemoryRepoFactory implements RepositoryFactory{
 
     @Override
     public ExpenseTypeRepository getExpenseTypeRepo() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return new InMemoryExpenseTypeRepository();
     }
 
     @Override

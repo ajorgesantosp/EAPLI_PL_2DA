@@ -134,7 +134,7 @@ public class ExpenseRecord {
      * @return ArrayList<TypeTotalExpense>
      */
     public ArrayList<TypeTotalExpense> getMonthExpensesByType(int month, int year) {
-        final ExpenseTypeRepository repo = Persistence.PersistenceFactory.instance().buildRepositoryFactory().getExpenseTypeRepo();
+        final ExpenseTypeRepository repo = Persistence.PersistenceFactory.buildRepositoryFactory().getExpenseTypeRepo();
         final ArrayList<TypeTotalExpense> result = new ArrayList<TypeTotalExpense>();
         final ExpenseRepository expenseRepo = new ExpenseRepository();
         BigDecimal sum;

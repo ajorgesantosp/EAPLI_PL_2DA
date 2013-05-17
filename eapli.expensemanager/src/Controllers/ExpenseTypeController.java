@@ -25,7 +25,7 @@ public class ExpenseTypeController extends BaseController{
         int id = Console.readInteger("Expense type ID:");
 
         ExpenseType expenseType = new ExpenseType (id, type);
-        ExpenseTypeRepository repo = Persistence.PersistenceFactory.instance().buildRepositoryFactory().getExpenseTypeRepo();
+        ExpenseTypeRepository repo = Persistence.PersistenceFactory.buildRepositoryFactory().getExpenseTypeRepo();
         repo.save(expenseType);
 
         System.out.println("Expense type saved successfully!");
@@ -33,14 +33,14 @@ public class ExpenseTypeController extends BaseController{
      
     public void registerType(String description, int id) {
         ExpenseType expenseType = new ExpenseType(id, description);
-        ExpenseTypeRepository repo = Persistence.PersistenceFactory.instance().buildRepositoryFactory().getExpenseTypeRepo();
+        ExpenseTypeRepository repo = Persistence.PersistenceFactory.buildRepositoryFactory().getExpenseTypeRepo();
         repo.save(expenseType);
         
         System.out.println("Expense type saved successfully!");
     }
     
     public List<ExpenseType> getAllExpTypes(){
-        ExpenseTypeRepository repo = Persistence.PersistenceFactory.instance().buildRepositoryFactory().getExpenseTypeRepo();
+        ExpenseTypeRepository repo = Persistence.PersistenceFactory.buildRepositoryFactory().getExpenseTypeRepo();
         return repo.getListOfTypes();
     }
 }
