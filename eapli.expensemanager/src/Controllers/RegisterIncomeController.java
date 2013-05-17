@@ -9,6 +9,7 @@ import Model.Income;
 import Model.IncomeRecord;
 
 import Model.IncomeType;
+import Model.PaymentMean;
 import Persistence.IncomeRepository;
 import java.math.BigDecimal;
 import java.util.List;
@@ -19,21 +20,21 @@ import java.util.List;
  * @author joasdavid
  */
 public class RegisterIncomeController extends BaseController {
-    private static IncomeRecord rec=new IncomeRecord();
+    IncomeRepository etr = Persistence.PersistenceFactory.instance().buildRepositoryFactory().getIncomeRepo();
     public void registIncome(double amount,String date,String desc, IncomeType type){
         Date data=new Date(date);
         
                 
         Income inc=new Income(desc, data, BigDecimal.valueOf(amount), type);
         
-        rec.save(inc);
+        etr.save(inc);
         
     }
     public List<ExpenseType> getExpenseTypes() {
-        return PersistenceFactory.instance().buildRepositoryFactory().getExpenseTypeRepository().getAll();
+        return Persistence.PersistenceFactory.instance().buildRepositoryFactory().getExpenseTypeRepo().getListOfTypes();
     }
     
-    public List<PaymentMethod> getPaymentMethods() {
-        return PersistenceFactory.instance().buildRepositoryFactory().getPaymentMethodRepository().getAll();
+    public List<PaymentMean> getPaymentMethods() {
+        return Persistence.PersistenceFactory.instance().buildRepositoryFactory().getPaymentMeanRepo().getPaymentMeans();
     }
 }
