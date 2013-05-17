@@ -4,8 +4,10 @@
  */
 package Persistence;
 
-import Persistence.hibernate.HibernateRepoFactory;
-import Persistence.inmemory.InMemoryRepoFactory;
+import Presentation.ExpenseManager;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 
 /**
  *
@@ -13,36 +15,24 @@ import Persistence.inmemory.InMemoryRepoFactory;
  */
 public class PersistenceFactory {
 
-    static PersistenceFactory instance = new PersistenceFactory();
-   
-    private PersistenceFactory() {
-    }
-    /**
-     * 
-     * @return PersistenceFactory
-     */
-    public static PersistenceFactory instance() {
-        return instance;
-
-    }
-
-    /**
-     * 
-     * Retorna HibernateRepoFactory() se estiver a trabalhar com persintencia sobre o hibernate
-     * Retorna InMemoryRepoFactory() se estiver a trabalhar com persinstencia em memoria
-     * 
-     * @return RepositoryFactory
-     */
-    public RepositoryFactory buildRepositoryFactory() {
-        boolean isHibernateFactory = true;
-        if (isHibernateFactory) {
-            return new HibernateRepoFactory();
-
-        } else {
-            return new InMemoryRepoFactory();
+    private PersistenceFactory(){}
+    
+    public static RepositoryFactory buildRepositoryFactory(){
+        String factoryClassName = ExpenseManager.getApplicationProperties().getProperty("persistence.repositoryFactory");
+        
+        try{
+            return (RepositoryFactory)Class.forName(factoryClassName).newInstance();
+        }catch(ClassNotFoundException ex){
+            Logger.getLogger(PersistenceFactory.class.getName()).log(Level.SEVERE,null,ex);
+            return null;
+        }catch(InstantiationException ex){
+            Logger.getLogger(PersistenceFactory.class.getName()).log(Level.SEVERE,null,ex);
+        }catch(IllegalAccessException ex){
+            Logger.getLogger(PersistenceFactory.class.getName()).log(Level.SEVERE,null,ex);
+            return null;
         }
+        return null;
     }
-
     
 
 }

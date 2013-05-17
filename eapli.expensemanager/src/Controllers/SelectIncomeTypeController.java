@@ -15,7 +15,7 @@ public class SelectIncomeTypeController  extends BaseController{
     
     
     public IncomeType getIncomeType(int id){
-        IncomeTypeRepository repo = Persistence.PersistenceFactory.instance().buildRepositoryFactory().getIncomeTypeRepo();
+        IncomeTypeRepository repo = Persistence.PersistenceFactory.buildRepositoryFactory().getIncomeTypeRepo();
         return repo.getIncType(id);
         
     }
