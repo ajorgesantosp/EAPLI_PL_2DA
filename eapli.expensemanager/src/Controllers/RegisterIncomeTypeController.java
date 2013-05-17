@@ -16,7 +16,7 @@ public class RegisterIncomeTypeController extends BaseController implements Seri
     
     public RegisterIncomeTypeController(String des){
         IncomeType inc = new IncomeType(des);
-        IncomeTypeRepository repo = new IncomeTypeRepository();
+        IncomeTypeRepository repo = Persistence.PersistenceFactory.instance().buildRepositoryFactory().getIncomeTypeRepo();
         repo.save(inc);
     }
  

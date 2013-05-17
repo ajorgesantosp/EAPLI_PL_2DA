@@ -6,24 +6,17 @@ package Controllers;
 
 import Model.IncomeType;
 import Persistence.IncomeTypeRepository;
-import java.io.Serializable;
 
 /**
  *
- * @author Jorge Neves
+ * @author Jorge Neves e joaofcmoreira
  */
-public class SelectIncomeTypeController  extends BaseController implements Serializable {
+public class SelectIncomeTypeController  extends BaseController{
     
     
     public IncomeType getIncomeType(int id){
-        IncomeTypeRepository repo = new IncomeTypeRepository();
+        IncomeTypeRepository repo = Persistence.PersistenceFactory.instance().buildRepositoryFactory().getIncomeTypeRepo();
         return repo.getIncType(id);
-        
-    }
-      
-    
-    public IncomeType getLast(){
-        return new IncomeTypeRepository().getLast();
         
     }
     

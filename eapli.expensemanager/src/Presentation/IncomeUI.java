@@ -25,7 +25,7 @@ public class IncomeUI extends BaseUI {
         System.out.println("Description");
         String desc = ler.nextLine();
         System.out.println("Type");
-        IncomeTypeUI typeui = new IncomeTypeUI();
+        RegisterIncomeTypeUI typeui = new RegisterIncomeTypeUI();
         typeui.doShow();
         //String escolha = ler.nextLine();
         IncomeType type = typeui.getIncomeType();
