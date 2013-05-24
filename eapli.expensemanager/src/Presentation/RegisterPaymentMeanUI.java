@@ -23,6 +23,7 @@ PaymentMeanController pmc = new PaymentMeanController();
     public RegisterPaymentMeanUI() {
     }
 
+    @Override
     public void doShow() {
         Scanner in = new Scanner(System.in);
         System.out.println("Insira o tipo de pagamento(Cash, Check, CreditCard, DebitCard):");
@@ -66,28 +67,34 @@ PaymentMeanController pmc = new PaymentMeanController();
         }
     }
 
+    @Override
     public String getActionName() {
         return "Payment Mean Register";
     }
 
+    @Override
     public void showBalance() {
     }
 
+  
     public List getPaymentMeans() {
         PaymentMeanController pmc = new PaymentMeanController();
         return pmc.getPaymentMeans();
     }
 
+  
     public PaymentMean getPaymentMeanIndex(int index) {
         PaymentMeanController pmc = new PaymentMeanController();
         return pmc.getPaymentMeanIndex(index);
     }
+    
     
     public void showPaymentMeans(){
         PaymentMeanController pmc = new PaymentMeanController();
         pmc.showPaymentMeans();
     }
     
+    @Override
     protected BaseController controller() {
         return pmc;
     }
