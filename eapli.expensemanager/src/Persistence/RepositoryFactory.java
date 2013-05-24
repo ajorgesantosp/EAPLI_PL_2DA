@@ -11,7 +11,7 @@ public interface RepositoryFactory {
     //Vai ser usado pelos controllers que tratam dos Expense Type
     public ExpenseTypeRepository getExpenseTypeRepo();
     //Vai ser usado pelos controllers que tratam dos PaymentMean
-    public PaymentMeanRepository getPaymentMeanRepo(); 
+    public IPaymentMeanRepository getPaymentMeanRepo(); 
     //Vai ser usado pelos controllers que tratam dos Income type
     public IncomeTypeRepository getIncomeTypeRepo(); 
     //Vai ser usado pelos controllers que tratam dos Income
