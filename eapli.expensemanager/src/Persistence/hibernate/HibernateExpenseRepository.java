@@ -6,17 +6,17 @@ package Persistence.hibernate;
 
 import Model.Expense;
 import Persistence.IExpenseRepository;
-import java.util.ArrayList;
+import Persistence.PersistenceInit;
 import java.util.Iterator;
-import java.util.List;
+import javax.persistence.EntityManager;
 
 /**
  *
  * @author i110617
  */
-public class HibernateExpenseRegisterRepository implements IExpenseRepository {
-    
-    public HibernateExpenseRegisterRepository() {
+public class HibernateExpenseRepository implements IExpenseRepository {
+
+    public HibernateExpenseRepository() {
     }
     
     @Override
@@ -24,7 +24,12 @@ public class HibernateExpenseRegisterRepository implements IExpenseRepository {
         if (exp == null) {
             throw new IllegalArgumentException();
         }
-        listExpense.add(exp);
+        
+        EntityManager manager = PersistenceInit.init();
+        manager.getTransaction().begin();
+        manager.persist(exp);
+        manager.getTransaction().commit();
+        manager.close();
 
     }
 

@@ -7,7 +7,7 @@ package Persistence;
 
 public interface RepositoryFactory {
     //Vai ser usado pelos controllers que tratam dos Expense
-    public ExpenseRepository getExpenseRepo(); 
+    public IExpenseRepository getExpenseRepo(); 
     //Vai ser usado pelos controllers que tratam dos Expense Type
     public ExpenseTypeRepository getExpenseTypeRepo();
     //Vai ser usado pelos controllers que tratam dos PaymentMean

@@ -32,7 +32,7 @@ public class ExpenseRegisterController extends BaseController {
      */
     public void registerExpense(String what, Date date, BigDecimal amount, ExpenseType expenseType, PaymentMean paymentMean) {
         Expense expense = new Expense(what, date, amount, expenseType, paymentMean);
-        ExpenseRepository repo = new ExpenseRepository();
+        ExpenseRepository repo = Persistence.PersistenceFactory.buildRepositoryFactory().getExpenseRepo();
         repo.save(expense);
     }
     
@@ -66,9 +66,9 @@ public class ExpenseRegisterController extends BaseController {
      */
     public ArrayList<PaymentMean> getListPaymentMean()
     {
-        PaymentMeanRepository repo = Persistence.PersistenceFactory.buildRepositoryFactory().getPaymentMeanRepo();
+        IPaymentMeanRepository repo = Persistence.PersistenceFactory.buildRepositoryFactory().getPaymentMeanRepo();
         List<PaymentMean> paymentList;
-        paymentList = repo.getPaymentMeans();
+        paymentList = repo.all();
         return (ArrayList)paymentList;
     }
     
@@ -79,8 +79,8 @@ public class ExpenseRegisterController extends BaseController {
      */
     public PaymentMean getPaymentMean(int posPaymentMean)
     {
-        PaymentMeanRepository repo = Persistence.PersistenceFactory.buildRepositoryFactory().getPaymentMeanRepo();
-        PaymentMean paymentMean = repo.getPaymentMeanIndex(posPaymentMean);
+        IPaymentMeanRepository repo = Persistence.PersistenceFactory.buildRepositoryFactory().getPaymentMeanRepo();
+        PaymentMean paymentMean = repo.findById(posPaymentMean);
         return paymentMean;
     }    
 }

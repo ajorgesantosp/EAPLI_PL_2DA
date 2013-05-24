@@ -1,11 +1,10 @@
 package Persistence.inmemory;
 
-import Persistence.ExpenseRepository;
 import Persistence.ExpenseTypeRepository;
+import Persistence.IExpenseRepository;
 import Persistence.IPaymentMeanRepository;
 import Persistence.IncomeRepository;
 import Persistence.IncomeTypeRepository;
-import Persistence.PaymentMeanRepository;
 import Persistence.RepositoryFactory;
 
 /**
@@ -25,8 +24,8 @@ public class InMemoryRepoFactory implements RepositoryFactory{
     public InMemoryRepoFactory() {}
 
     @Override
-    public ExpenseRepository getExpenseRepo() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public IExpenseRepository getExpenseRepo() {
+        return new InMemoryExpenseRegister();
     }
 
     @Override
