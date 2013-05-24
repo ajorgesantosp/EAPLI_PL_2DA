@@ -15,7 +15,7 @@ import java.math.BigDecimal;
 public class ExpenseBootstrapper {
 
     static {
-        ExpenseRepository repo = new ExpenseRepository();
+        //ExpenseRepository repo = new ExpenseRepository();
         /*
         repo.save(new Expense("Autocarro", 2013, 3, 4, new BigDecimal(2.4)));
         repo.save(new Expense("Almoço", 2013, 3, 5, new BigDecimal(12.4)));
