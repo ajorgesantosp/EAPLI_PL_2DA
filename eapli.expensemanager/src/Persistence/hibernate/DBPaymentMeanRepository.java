@@ -5,8 +5,6 @@
 package Persistence.hibernate;
 
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.PersistenceUnit;
-import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 /**

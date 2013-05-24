@@ -33,8 +33,8 @@ public class MonthsExpenditureGraphicController extends BaseController{
      * @param int year
      * @return
      */
-    public ArrayList<TypeTotalExpense> getMonthExpensesbyType(int month, int year) {
+    public ArrayList<TypeTotalExpense> getMonthExpensesByType(int month, int year) {
         ExpenseRecord rec = new ExpenseRecord();
-        return rec.getMonthExpensesbyType(month, year);
+        return rec.getMonthExpensesByType(month, year);
     }
 }

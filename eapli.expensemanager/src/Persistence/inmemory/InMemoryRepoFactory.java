@@ -2,6 +2,7 @@ package Persistence.inmemory;
 
 import Persistence.ExpenseRepository;
 import Persistence.ExpenseTypeRepository;
+import Persistence.IPaymentMeanRepository;
 import Persistence.IncomeRepository;
 import Persistence.IncomeTypeRepository;
 import Persistence.PaymentMeanRepository;
@@ -34,7 +35,7 @@ public class InMemoryRepoFactory implements RepositoryFactory{
     }
 
     @Override
-    public PaymentMeanRepository getPaymentMeanRepo() {
+    public IPaymentMeanRepository getPaymentMeanRepo() {
         return new IMPaymentMeanRepository();
     }
 
