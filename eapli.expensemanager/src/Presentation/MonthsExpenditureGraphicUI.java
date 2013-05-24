@@ -24,7 +24,7 @@ public class MonthsExpenditureGraphicUI extends BaseUI {
     
     @Override
     public void doShow() {
-        ArrayList<TypeTotalExpense> values = megc.getMonthExpensesbyType(Console.readInteger("Insert month: "), Console.readInteger("Insert year: "));
+        ArrayList<TypeTotalExpense> values = megc.getMonthExpensesByType(Console.readInteger("Insert month: "), Console.readInteger("Insert year: "));
         BigDecimal max = values.get(0).getValue();
         int size = values.size();
         for(int j = 0; j < size; j++) {
