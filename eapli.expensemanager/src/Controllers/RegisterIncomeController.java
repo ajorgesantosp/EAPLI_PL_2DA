@@ -34,6 +34,6 @@ public class RegisterIncomeController extends BaseController {
     }
     
     public List<PaymentMean> getPaymentMethods() {
-        return Persistence.PersistenceFactory.buildRepositoryFactory().getPaymentMeanRepo().getPaymentMeans();
+        return Persistence.PersistenceFactory.buildRepositoryFactory().getPaymentMeanRepo().all();
     }
 }
