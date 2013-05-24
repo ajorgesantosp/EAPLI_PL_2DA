@@ -10,7 +10,7 @@ import java.util.Scanner;
  * @author antoniopedro
  * @author joasdavid
  */
-public class IncomeUI extends BaseUI {
+public class RegisterIncomeUI extends BaseUI {
 
     private BaseController controller;
 
