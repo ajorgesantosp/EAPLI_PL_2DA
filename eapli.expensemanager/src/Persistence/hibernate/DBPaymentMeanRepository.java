@@ -10,8 +10,9 @@ import Persistence.IPaymentMeanRepository;
 import Persistence.PersistenceInit;
 import java.util.List;
 
-import javax.persistence.EntityManagerFactory;
+
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
@@ -53,6 +54,7 @@ public class DBPaymentMeanRepository implements IPaymentMeanRepository {
 
     }
 
+    @Override
     public void showPaymentMeans() {
         EntityManager manager = PersistenceInit.init();
         Query query = manager.createQuery("select mean from PaymentMean as mean");
