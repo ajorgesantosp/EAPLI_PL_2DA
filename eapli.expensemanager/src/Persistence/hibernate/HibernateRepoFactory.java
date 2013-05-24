@@ -1,6 +1,6 @@
 package Persistence.hibernate;
-import Persistence.ExpenseRepository;
 import Persistence.ExpenseTypeRepository;
+import Persistence.IExpenseRepository;
 import Persistence.IPaymentMeanRepository;
 import Persistence.IncomeRepository;
 import Persistence.IncomeTypeRepository;
@@ -20,8 +20,8 @@ public class HibernateRepoFactory implements RepositoryFactory{
      * @return ExpenseRepository
      */
     @Override
-    public ExpenseRepository getExpenseRepo() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public IExpenseRepository getExpenseRepo() {
+        return new HibernateExpenseRegister();
     }
 
     /**
@@ -58,11 +58,6 @@ public class HibernateRepoFactory implements RepositoryFactory{
     @Override
     public IncomeRepository getIncomeRepo() {
         return new DBIncomeRepository();
-    }
-
-    @Override
-    public IPaymentMeanRepository getPaymentMeanRepo() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     

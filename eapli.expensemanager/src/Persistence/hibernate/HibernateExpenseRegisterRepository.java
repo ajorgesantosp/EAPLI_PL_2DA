@@ -6,14 +6,16 @@ package Persistence.hibernate;
 
 import Model.Expense;
 import Persistence.IExpenseRepository;
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 /**
  *
  * @author i110617
  */
 public class HibernateExpenseRegisterRepository implements IExpenseRepository {
-
+    
     public HibernateExpenseRegisterRepository() {
     }
     
