@@ -21,7 +21,7 @@ public class HibernateRepoFactory implements RepositoryFactory{
      */
     @Override
     public IExpenseRepository getExpenseRepo() {
-        return new HibernateExpenseRegister();
+        return new HibernateExpenseRepository();
     }
 
     /**
