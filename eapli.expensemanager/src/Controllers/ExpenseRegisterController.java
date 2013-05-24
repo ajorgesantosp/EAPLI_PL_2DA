@@ -32,7 +32,7 @@ public class ExpenseRegisterController extends BaseController {
      */
     public void registerExpense(String what, Date date, BigDecimal amount, ExpenseType expenseType, PaymentMean paymentMean) {
         Expense expense = new Expense(what, date, amount, expenseType, paymentMean);
-        ExpenseRepository repo = new ExpenseRepository();
+        ExpenseRepository repo = Persistence.PersistenceFactory.buildRepositoryFactory().getExpenseRepo();
         repo.save(expense);
     }
     
