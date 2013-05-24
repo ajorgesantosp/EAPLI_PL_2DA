@@ -24,7 +24,7 @@ public class MonthsExpenditureGraphicController extends BaseController{
      * Creates the controller
      */
     public MonthsExpenditureGraphicController() {
-        repo = Persistence.PersistenceFactory.instance().buildRepositoryFactory().getExpenseTypeRepo();
+        repo = Persistence.PersistenceFactory.buildRepositoryFactory().getExpenseTypeRepo();
     }
     
     /**

@@ -42,7 +42,7 @@ public class ExpenseRegisterController extends BaseController {
      */
     public ArrayList<ExpenseType> getListType()
     {
-        ExpenseTypeRepository repo = Persistence.PersistenceFactory.instance().buildRepositoryFactory().getExpenseTypeRepo();
+        ExpenseTypeRepository repo = Persistence.PersistenceFactory.buildRepositoryFactory().getExpenseTypeRepo();
         List<ExpenseType> listType;
         listType = repo.getListOfTypes();        
         return (ArrayList)listType;
@@ -55,7 +55,7 @@ public class ExpenseRegisterController extends BaseController {
      */
     public ExpenseType getObjectType(int posExpenseType)
     {
-        ExpenseTypeRepository repo = Persistence.PersistenceFactory.instance().buildRepositoryFactory().getExpenseTypeRepo();
+        ExpenseTypeRepository repo = Persistence.PersistenceFactory.buildRepositoryFactory().getExpenseTypeRepo();
         ExpenseType expenseType = repo.getExpType(posExpenseType);
         return expenseType;
     }
